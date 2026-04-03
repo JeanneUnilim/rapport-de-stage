@@ -11,48 +11,306 @@
 </head>
 <body>
 
-    <canvas id="c"></canvas>
+  <canvas id="c"></canvas>
 
-    <nav>
+  <nav>
     <div class="nav-logo">Rapport · CIN Laval</div>
     <ul class="nav-links">
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/rapport-de-lancement">Lancement</a></li>
-        <li><a href="/rapport-final">Rapport final</a></li>
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/rapport-de-lancement">Lancement</a></li>
+      <li><a href="/rapport-final">Rapport final</a></li>
     </ul>
     <button class="btn-theme" onclick="toggleTheme()" id="theme-btn">☽ Mode sombre</button>
-    </nav>
+  </nav>
 
-    <div class="page-hero">
-        <div class="holo-wrap" style="right:4rem; top:8rem; width:250px; height:250px; opacity:.7;">
-            <div class="holo-sphere" style="width:100%; height:100%;"></div>
-        </div>
-        <div class="page-hero-label"><span></span>Rapport de lancement</div>
-        <h1>Analyse<br>du <span class="grad">besoin</span><br>& planification</h1>
-        <div class="page-hero-meta">
-            <div class="meta-item">
-                <span class="meta-key">Étudiant</span>
-                <span class="meta-val">[Prénom Nom]</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-key">Structure</span>
-                <span class="meta-val">Laval Agglomération — CIN</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-key">Maître de stage</span>
-                <span class="meta-val">[Prénom Nom]</span>
-            </div>
-            <div class="meta-item">
-                <span class="meta-key">Date de remise</span>
-                <span class="meta-val">[Date]</span>
-            </div>
-        </div>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="holo-wrap" style="right:4rem; top:8rem; width:250px; height:250px; opacity:.7;">
+      <div class="holo-sphere" style="width:100%; height:100%;"></div>
     </div>
-    <!-- 01 PRÉSENTATION -->
-    <!-- 02 MISSIONS -->
-    <!-- 03 STACK -->
-    <!-- 04 VEILLE -->
-    <!-- FOOTER -->
+    <div class="page-hero-label"><span></span>Rapport de lancement</div>
+    <h1>Analyse<br>du <span class="grad">besoin</span><br>& planification</h1>
+    <div class="page-hero-meta">
+      <div class="meta-item">
+        <span class="meta-key">Étudiante</span>
+        <span class="meta-val">Jeanne Salvadori</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Structure</span>
+        <span class="meta-val">Laval Agglomération — CIN</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Maître de stage</span>
+        <span class="meta-val">[Prénom Nom]</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-key">Date de remise</span>
+        <span class="meta-val">[Date]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 PRÉSENTATION DU PROJET -->
+  <section class="section">
+    <div class="label rev">01 — Présentation du projet</div>
+    <h2 class="h2 rev">Le Centre <span class="grad">Initiation Nature</span></h2>
+
+    <div class="deux-col">
+      <div class="prose rev d1">
+        <h3>Contexte</h3>
+        <p>Laval Agglomération regroupe plusieurs communes autour de Laval, préfecture de la Mayenne. La collectivité porte de nombreux services publics, dont le Centre Initiation Nature (CIN), qui propose des activités de découverte de la nature tout au long de l'année — sorties naturalistes, ateliers pédagogiques, animations pour les scolaires et le grand public. Sa programmation annuelle comporte une quarantaine d'activités tous les six mois, réparties sur différents lieux du territoire.</p>
+
+        <h3>Le problème</h3>
+        <p>Jusqu'à présent, la gestion des inscriptions repose entièrement sur des échanges par <strong>téléphone et e-mail</strong>. Ce processus représente <strong>un tiers du temps de travail</strong> de l'équipe — une charge considérable consacrée à des tâches à faible valeur ajoutée : saisie manuelle, relances, confirmation individuelle de chaque participant. Il n'existe aucun outil centralisé permettant de visualiser la programmation, de consulter les places disponibles ou de s'inscrire en autonomie.</p>
+
+        <h3>L'objectif</h3>
+        <p>Développer une application web permettant aux citoyens de <strong>consulter la programmation et de s'inscrire en ligne</strong>, et à l'équipe CIN de <strong>gérer les activités et les inscriptions</strong> depuis un back-office dédié. Le cahier des charges (version 1.4) a été rédigé en collaboration avec mon tuteur et validé lors d'une réunion avec l'équipe CIN.</p>
+
+        <h3>Périmètre du cahier des charges</h3>
+        <p>Il convient de noter que le cahier des charges, bien que détaillé sur le plan fonctionnel et technique, comporte deux points volontairement laissés ouverts. La <strong>charte graphique</strong> n'est pas encore définie — elle sera établie en cohérence avec l'identité visuelle du CIN dans une phase ultérieure. Par ailleurs, la nature très spécifique du projet rend une <strong>veille concurrentielle</strong> peu pertinente : il n'existe pas de concurrent direct à proprement parler. Le CIN a un besoin précis que les outils généralistes du marché (Eventbrite, Weezevent...) ne couvrent pas fidèlement, notamment sur la gestion des animateurs, l'intégration SSO Keycloak ou la distinction adultes/enfants dans les jauges de places.</p>
+      </div>
+
+      <div class="feat-list rev d2">
+        <div class="feat-item">
+          <span class="feat-num">01</span>
+          <div class="feat-content">
+            <h3>Front-office public</h3>
+            <p>Agenda interactif filtrable par catégorie, fiches activités détaillées, formulaire d'inscription multi-participants, e-mails de confirmation et rappel automatique J-2 avec lieu précis et lien Google Maps.</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">02</span>
+          <div class="feat-content">
+            <h3>Back-office admin</h3>
+            <p>Gestion des activités (création, modification, duplication, annulation avec notification e-mail aux inscrits), gestion des inscriptions, export PDF, paramétrage des catégories et animateurs.</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">03</span>
+          <div class="feat-content">
+            <h3>Annulation & désinscription</h3>
+            <p>En cas d'annulation d'une activité (météo, imprévu), un e-mail automatique précisant la cause est envoyé à tous les inscrits. La désinscription individuelle est prévue comme amélioration future.</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">04</span>
+          <div class="feat-content">
+            <h3>Sécurité & RGPD</h3>
+            <p>SSO Keycloak, HTTPS, rate limiting, consentement explicite au formulaire d'inscription, attention particulière sur la collecte de données de mineurs (date de naissance).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 MISSIONS & PLANNING -->
+  <section class="section section--alt">
+    <div class="label rev">02 — Missions & planification</div>
+    <h2 class="h2 rev">Du cahier des charges<br><span class="grad">au développement</span></h2>
+
+    <!-- Planning effectif -->
+    <h3 class="planning-subtitle rev">Planning effectif — 3 premières semaines</h3>
+    <div class="arrow-timeline">
+
+    <div class="at-item rev">
+        <div class="at-num">01</div>
+        <div class="at-arrow-wrap">
+        <div class="at-arrow" style="background: linear-gradient(90deg, var(--v1), var(--v2));">
+            <span>Semaine 1 · 24–28 mars</span>
+        </div>
+        </div>
+        <div class="at-title">Prise de poste & découverte</div>
+        <div class="at-desc">Ma première semaine a été entièrement consacrée à la découverte de mon environnement de travail. J'ai rencontré les différents membres du service numérique de Laval Agglomération et appris à identifier les rôles de chacun. Mon tuteur m'a présenté la stack technique — Angular, PrimeNG, Node.js, TypeScript — des technologies que je n'avais que très peu pratiquées en formation. J'ai également découvert GitLab, que je n'avais jamais utilisé.</div>
+    </div>
+
+    <div class="at-item rev d1">
+        <div class="at-num">02</div>
+        <div class="at-arrow-wrap" style="padding-left: 3rem;">
+        <div class="at-arrow" style="background: linear-gradient(90deg, var(--v2), var(--p1));">
+            <span>Semaine 1 → mi-semaine 2 · 28 mars–4 avril</span>
+        </div>
+        </div>
+        <div class="at-title">Rédaction du cahier des charges</div>
+        <div class="at-desc">Dès la fin de la première semaine, j'ai commencé à rédiger le cahier des charges en plusieurs versions successives, chaque itération étant relue et discutée avec mon tuteur. En début de semaine 2, une réunion avec Murielle (CIN) a permis de valider le besoin et d'intégrer des fonctionnalités non identifiées initialement, comme la possibilité d'annuler une activité avec notification automatique aux inscrits. Le CDC v1.4 a ensuite été transmis pour validation.</div>
+    </div>
+
+    <div class="at-item rev d2">
+        <div class="at-num">03</div>
+        <div class="at-arrow-wrap" style="padding-left: 6rem;">
+        <div class="at-arrow" style="background: linear-gradient(90deg, var(--p1), var(--p2));">
+            <span>Mi-semaine 2 → semaine 3 · 7–22 avril</span>
+        </div>
+        </div>
+        <div class="at-title">Début du développement — socle technique</div>
+        <div class="at-desc">J'ai repris le socle initialisé par mon tuteur sur GitLab — la connexion SSO Keycloak et la structure du serveur étaient déjà en place. Mon travail a consisté à structurer l'API Node.js avec Express, à connecter MongoDB via Mongoose et à créer l'ensemble des modèles/schémas : Activité, Inscription, Participant, Catégorie et Animateur. J'ai également configuré le CORS, le rate limiting, les index MongoDB et mis en place les variables d'environnement via le package config. Côté front, j'ai créé les interfaces TypeScript et les services HTTP Angular correspondants. J'ai été surprise par la rapidité de mise en place du back-end avec Mongoose — une fois le premier modèle compris, les suivants sont allés très vite. J'ai également trouvé le pattern controller/route très lisible une fois le premier écrit. Parmi les difficultés rencontrées : express-mongo-sanitize s'est révélé incompatible avec Express 5 et a dû être retiré, la convention de nommage des fichiers Angular diffère de la documentation officielle (nouvelle convention sans suffixe .service), et la gestion des branches main vs master entre les deux projets a nécessité une attention particulière. J'ai aussi découvert GitLab à cette occasion, que je n'avais jamais utilisé contrairement à GitHub.</div>
+    </div>
+
+    </div>
+
+    <!-- Planning prévisionnel -->
+    <h3 class="planning-subtitle rev" style="margin-top: 4rem;">Planning prévisionnel — sprints à venir</h3>
+    <div class="arrow-timeline">
+
+    <div class="at-item rev">
+        <div class="at-num" style="background: linear-gradient(135deg, var(--b1), var(--b2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">04</div>
+        <div class="at-arrow-wrap">
+        <div class="at-arrow" style="background: linear-gradient(90deg, var(--b1), var(--b2));">
+            <span>Sprint 2 · Avril 2026</span>
+        </div>
+        </div>
+        <div class="at-title">Paramétrage</div>
+        <div class="at-desc">Le sprint 2 est partiellement entamé au moment de la rédaction de ce rapport. Côté back-end, le CRUD des catégories et des animateurs est entièrement terminé et testé via Thunder Client — routes et controllers sont en place et fonctionnels. Côté front-end, les interfaces TypeScript et les services Angular sont créés. Il reste à développer les pages Angular (liste et formulaire) pour finaliser ce sprint. Ce sprint m'a permis de consolider le pattern back-end mis en place au sprint 1 — routes, controllers, modèles — et de le reproduire de façon autonome pour la première fois.</div>
+    </div>
+
+    <div class="at-item rev d1">
+        <div class="at-num" style="background: linear-gradient(135deg, var(--b2), var(--c1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">05</div>
+        <div class="at-arrow-wrap" style="padding-left: 2rem;">
+        <div class="at-arrow" style="background: linear-gradient(90deg, var(--b2), var(--c1));">
+            <span>Sprint 3 · Avril–Mai 2026</span>
+        </div>
+        </div>
+        <div class="at-title">Gestion des activités</div>
+        <div class="at-desc">Ce sprint portera sur la liste des inscriptions par activité, l'ajout manuel d'une inscription par l'équipe CIN, et la génération d'un export PDF via PDFKit. Ce PDF contiendra la liste complète des inscrits avec un récapitulatif distinguant les adultes (+18 ans) et les enfants (-18 ans) — une donnée calculée automatiquement à partir de la date de naissance renseignée dans le formulaire.</div>
+    </div>
+
+    <div class="at-item rev d2">
+        <div class="at-num" style="background: linear-gradient(135deg, var(--c1), var(--b1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">06</div>
+        <div class="at-arrow-wrap" style="padding-left: 4rem;">
+        <div class="at-arrow" style="background: linear-gradient(90deg, var(--c1), var(--b1));">
+            <span>Sprint 4 · Mai 2026</span>
+        </div>
+        </div>
+        <div class="at-title">Gestion des inscriptions</div>
+        <div class="at-desc">Liste par activité, ajout manuel, export PDF avec récapitulatif adultes/enfants via PDFKit.</div>
+    </div>
+
+    <div class="at-item rev d3">
+        <div class="at-num" style="background: linear-gradient(135deg, var(--b1), var(--v1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">07</div>
+        <div class="at-arrow-wrap" style="padding-left: 2rem;">
+        <div class="at-arrow" style="background: linear-gradient(90deg, var(--b1), var(--v1));">
+            <span>Sprint 5 · Mai–Juin 2026</span>
+        </div>
+        </div>
+        <div class="at-title">Tableau de bord & agenda admin</div>
+        <div class="at-desc">Le tableau de bord constituera la page d'accueil du back-office. Il affichera les prochains événements sous forme de cartes avec des statistiques permanentes (nombre d'inscrits, places restantes) et des alertes conditionnelles dynamiques ("Complet", "Plus que X places", "Clôture imminente"). Une vue agenda FullCalendar permettra à l'équipe CIN de visualiser rapidement la programmation et de détecter d'éventuels chevauchements d'activités.</div>
+    </div>
+
+    <div class="at-item rev d1">
+        <div class="at-num" style="background: linear-gradient(135deg, var(--v1), var(--p1)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">08</div>
+        <div class="at-arrow-wrap" style="padding-left: 5rem;">
+        <div class="at-arrow" style="background: linear-gradient(90deg, var(--v1), var(--p1));">
+            <span>Sprint 6 · Été 2026</span>
+        </div>
+        </div>
+        <div class="at-title">Front-office public</div>
+        <div class="at-desc">Ce sprint marquera le passage à la partie visible par les citoyens. Je développerai l'agenda interactif public avec FullCalendar, les fiches détaillées de chaque activité, et le formulaire d'inscription multi-participants. Les e-mails automatiques seront mis en place via Node Mailer : confirmation immédiate après inscription et rappel J-2 avec le lieu précis de rendez-vous et un lien Google Maps. Le SEO sera assuré par Angular Universal (rendu côté serveur) avec des balises meta dynamiques par activité.</div>
+    </div>
+
+    <div class="at-item rev d2">
+        <div class="at-num" style="background: linear-gradient(135deg, var(--p1), var(--p2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">09</div>
+        <div class="at-arrow-wrap" style="padding-left: 3rem;">
+        <div class="at-arrow" style="background: linear-gradient(90deg, var(--p1), var(--p2));">
+            <span>Sprint 7 · Noël 2026</span>
+        </div>
+        </div>
+        <div class="at-title">Recette & déploiement</div>
+        <div class="at-desc">La phase finale sera consacrée aux tests et à la mise en production. Les tests unitaires seront réalisés avec Vitest, déjà installé dans le projet. Une stratégie de tests E2E reste à définir (Cypress ou Playwright). Des tests cross-navigateurs (Chrome, Firefox, Edge, Safari) et responsive seront effectués avant le déploiement. L'objectif est une mise en ligne du back-office à l'été 2026 et du front-office public à Noël 2026.</div>
+    </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- 03 STACK TECHNIQUE -->
+  <section class="section">
+    <div class="label rev">03 — Analyse du besoin</div>
+    <h2 class="h2 rev">Stack <span class="grad">technique</span><br>choisie</h2>
+
+    <div class="stack-layout">
+      <div class="stack-scene rev d1" id="stack-scene">
+        <div class="stack-3d" id="s3d">
+          <div class="s-layer"><span class="s-dot"></span>Angular + PrimeNG + Tailwind</div>
+          <div class="s-layer"><span class="s-dot"></span>FullCalendar · Leaflet</div>
+          <div class="s-layer"><span class="s-dot"></span>Node.js — API REST</div>
+          <div class="s-layer"><span class="s-dot"></span>MongoDB (NoSQL)</div>
+          <div class="s-layer"><span class="s-dot"></span>Keycloak SSO · OVH</div>
+        </div>
+      </div>
+
+      <div class="stack-details">
+        <div class="s-detail rev d1">
+          <span class="s-detail-tag">Front-end</span>
+          <p>Angular avec PrimeNG + Tailwind CSS pour l'UI, FullCalendar pour l'agenda interactif. Angular Universal (SSR) pour l'indexation SEO du front-office public.</p>
+        </div>
+        <div class="s-detail rev d2">
+          <span class="s-detail-tag">Back-end</span>
+          <p>API RESTful Node.js. WebSockets envisagés pour la synchronisation des jauges en temps réel. Node Mailer pour les e-mails automatiques. PDFKit pour les exports.</p>
+        </div>
+        <div class="s-detail rev d3">
+          <span class="s-detail-tag">Données</span>
+          <p>MongoDB — base NoSQL adaptée aux structures événementielles flexibles. Participants embarqués dans les documents d'inscription (dénormalisation). Médias redimensionnés via Sharp.</p>
+        </div>
+        <div class="s-detail rev d1">
+          <span class="s-detail-tag">Auth — SSO</span>
+          <p>Keycloak SSO de la Ville de Laval : un agent CIN connecté à sa session Windows accède directement au back-office sans se réauthentifier, via l'annuaire LDAP centralisé de la collectivité. Une technologie nouvelle pour moi, absente de ma formation.</p>
+        </div>
+        <div class="s-detail rev d2">
+          <span class="s-detail-tag">Infra</span>
+          <p>Front-office hébergé sur OVH (accès public). Back-office sur le réseau interne Ville de Laval. Navigateurs supportés : Chrome, Firefox, Edge, Safari (2 dernières versions).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 VEILLE TECHNOLOGIQUE -->
+  <section class="section section--alt">
+    <div class="holo-wrap" style="right:-20px; bottom:2rem; width:200px; height:200px; opacity:.45;">
+      <div class="holo-blob" style="width:100%; height:100%; animation-delay:-2s;"></div>
+    </div>
+    <div class="label rev">04 — Veille technologique</div>
+    <h2 class="h2 rev">Recommandations<br><span class="grad">& alternatives</span></h2>
+    <p class="rev d1" style="color:var(--muted); max-width:660px; line-height:1.8; font-size:.95rem; margin-bottom:0;">
+      Dans le cadre de la veille technologique menée pour ce projet, j'ai analysé les alternatives aux choix retenus dans le cahier des charges afin de valider leur pertinence ou d'identifier des pistes d'amélioration. La nature très spécifique du projet — un outil métier interne à une collectivité — rend une veille concurrentielle peu utile. J'ai donc orienté ma veille sur les choix technologiques.
+    </p>
+
+    <div class="veille-grid rev d2">
+      <div class="veille-card">
+        <span class="veille-tag">Composant agenda</span>
+        <h3>FullCalendar vs alternatives</h3>
+        <p>J'ai analysé plusieurs librairies pour l'affichage de l'agenda interactif, central dans l'expérience utilisateur. FullCalendar s'impose par sa licence MIT, son plugin Angular natif, ses vues mois/liste, la détection de chevauchements et sa documentation complète. DHTMLX Scheduler et Toast UI Calendar ont une intégration Angular moins mature. Big Calendar a été écarté car prévu pour React uniquement.</p>
+        <span class="veille-verdict" style="color:var(--v1); border-color:rgba(192,132,252,.3);">✓ FullCalendar confirmé</span>
+      </div>
+      <div class="veille-card">
+        <span class="veille-tag">Base de données</span>
+        <h3>NoSQL vs SQL</h3>
+        <p>Le modèle événementiel du CIN — activités avec participants imbriqués, catégories flexibles, statuts multiples — justifie une base NoSQL. Un schéma SQL rigide aurait complexifié la gestion des inscriptions groupées. J'ai choisi MongoDB pour apprendre un nouveau paradigme, et parce que mon tuteur utilise le même système, ce qui facilite les échanges en cas de blocage.</p>
+        <span class="veille-verdict" style="color:var(--p1); border-color:rgba(244,114,182,.3);">✓ MongoDB retenu</span>
+      </div>
+      <div class="veille-card">
+        <span class="veille-tag">Rendu côté serveur</span>
+        <h3>Angular Universal (SSR)</h3>
+        <p>Le front-office public doit être indexé par les moteurs de recherche pour que les activités du CIN apparaissent dans les résultats Google. Angular Universal permet le rendu côté serveur avec des balises meta dynamiques par activité et des URLs propres — indispensable pour le SEO d'un site public de collectivité.</p>
+        <span class="veille-verdict" style="color:var(--b2); border-color:rgba(96,165,250,.3);">✓ SSR recommandé</span>
+      </div>
+      <div class="veille-card">
+        <span class="veille-tag">Architecture</span>
+        <h3>Front/back découplés</h3>
+        <p>Contrairement aux architectures monolithiques comme Symfony que j'avais pratiquées en formation, ce projet sépare totalement le front-end Angular du back-end Node.js. Angular consomme des endpoints REST sans jamais accéder directement à la base de données. Cette séparation permet une meilleure scalabilité et facilite les évolutions indépendantes des deux parties — un standard dans les applications modernes de collectivités.</p>
+        <span class="veille-verdict" style="color:#34d399; border-color:rgba(52,211,153,.3);">✓ Architecture moderne</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-logo">CIN · Rapport de Stage 2026</div>
+      <p style="margin-top:.4rem;">Laval Agglomération · Licence Pro MI-AW</p>
+    </div>
+    <div style="display:flex; gap:1rem;">
+      <a href="/" class="btn-s" style="padding:.5rem 1.2rem; font-size:.75rem;">← Accueil</a>
+      <a href="/rapport-final" class="btn-p" style="padding:.5rem 1.2rem; font-size:.75rem;">Rapport final →</a>
+    </div>
+  </footer>
 
   <script src="/assets/js/main.js"></script>
 </body>
