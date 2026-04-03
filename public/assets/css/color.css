@@ -1,0 +1,62 @@
+/* Polices */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap');
+
+:root {
+  /* Fonds / Backgrounds */
+  --bg: #f5f0ff;
+  --bg2: #ede4ff;
+  --bg3: #e4d8ff;
+
+  /* Surfaces et bordures */
+  --surface: rgba(100,60,200,0.06);
+  --surface2: rgba(100,60,200,0.10);
+  --border: rgba(100,60,200,0.12);
+  --border2: rgba(100,60,200,0.22);
+
+  /* Texte */
+  --text: #18102e;
+  --muted: rgba(24,16,46,0.52);
+  --muted2: rgba(24,16,46,0.28);
+
+  /* Glows */
+  --gv: rgba(168,85,247,0.12);
+  --gp: rgba(244,114,182,0.10);
+  --gb: rgba(96,165,250,0.08);
+
+  /* Palette */
+  --v1: #c084fc;
+  --v2: #a855f7;
+  --v3: #7c3aed;
+  --p1: #f472b6;
+  --p2: #ec4899;
+  --b1: #818cf8;
+  --b2: #60a5fa;
+  --c1: #67e8f9;
+
+  /* Typographie */
+  --font-d: 'Syne', sans-serif;
+  --font-b: 'DM Sans', sans-serif;
+
+  /* Border radius */
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+}
+
+/* Mode sombre - On inverse les variables */
+[data-theme="dark"] {
+  --bg: #08060f;
+  --bg2: #0d0b18;
+  --bg3: #110e1f;
+  --surface: rgba(255,255,255,0.045);
+  --surface2: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --text: #ede8f8;
+  --muted: rgba(237,232,248,0.42);
+  --muted2: rgba(237,232,248,0.22);
+  --gv: rgba(168,85,247,0.18);
+  --gp: rgba(244,114,182,0.14);
+  --gb: rgba(96,165,250,0.10);
+}

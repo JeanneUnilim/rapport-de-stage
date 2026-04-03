@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport de Stage — CIN Laval</title>
+    <meta name="description" content="Rapport de stage de [Prénom Nom] — Développement web au Centre Initiation Nature de Laval Agglomération, 2026.">
+    <link rel="stylesheet" href="/assets/css/color.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+</head>
+<body>
+
+    <canvas id="c"></canvas>
+
+    <nav>
+        <div class="nav-logo">Rapport · CIN Laval</div>
+        <ul class="nav-links">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/rapport-de-lancement">Lancement</a></li>
+            <li><a href="/rapport-final">Rapport final</a></li>
+        </ul>
+        <button class="btn-theme" onclick="toggleTheme()" id="theme-btn">☽ Mode sombre</button>
+    </nav>
+    <section class="section hero">
+
+        <!-- Formes holographiques -->
+        <div class="holo-wrap" style="right:-60px; top:12vh; width:300px; height:300px;">
+            <div class="holo-sphere" style="width:100%; height:100%;"></div>
+        </div>
+        <div class="holo-wrap" style="right:260px; top:55vh; width:120px; height:44px;">
+            <div class="holo-capsule" style="width:100%; height:100%; transform:rotate(-30deg);"></div>
+        </div>
+        <div class="holo-wrap" style="right:80px; bottom:10vh; width:160px; height:160px;">
+            <div class="holo-blob" style="width:100%; height:100%; animation-delay:-3s;"></div>
+        </div>
+        <div class="holo-wrap" style="left:-40px; bottom:15vh; width:220px; height:220px; opacity:.5;">
+            <div class="holo-blob" style="width:100%; height:100%; animation-delay:-6s;"></div>
+        </div>
+        <div class="holo-wrap" style="left:38%; top:8vh; width:80px; height:80px;">
+            <div class="holo-cube-wrap" style="width:100%; height:100%;">
+            <div class="holo-cube">
+                <div class="holo-face"></div>
+                <div class="holo-face"></div>
+                <div class="holo-face"></div>
+                <div class="holo-face"></div>
+                <div class="holo-face"></div>
+                <div class="holo-face"></div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Contenu -->
+        <div class="hero-content">
+            <div class="hero-tag"><span></span>Licence Pro MI-AW · Laval Agglomération · 2026</div>
+            <h1 class="hero-h1">
+            Centre<br>
+            <span class="grad">Initiation</span><br>
+            Nature
+            </h1>
+            <p class="hero-sub">
+            Développement d'une application web de gestion des activités et réservations pour le CIN de Laval — Angular · Node.js · NoSQL
+            </p>
+            <div class="hero-ctas">
+            <a href="/rapport-de-lancement" class="btn-p">Rapport de lancement →</a>
+            <a href="/rapport-final" class="btn-s">Rapport final ↓</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- INFOS -->
+    <section class="section">
+        <div class="label rev">Informations</div>
+        <div class="info-grid rev d1">
+            <div class="info-cell">
+                <span class="info-cell-num">01</span>
+                <h3>Étudiant</h3>
+                <p>[Prénom Nom]<br>Licence Pro MI-AW<br>Université de Limoges</p>
+            </div>
+            <div class="info-cell">
+                <span class="info-cell-num">02</span>
+                <h3>Organisme d'accueil</h3>
+                <p>Laval Agglomération<br>Centre Initiation Nature<br>[Adresse]</p>
+            </div>
+            <div class="info-cell">
+                <span class="info-cell-num">03</span>
+                <h3>Stage</h3>
+                <p>Développement web full-stack<br>Mars – Juillet 2026<br>Maître de stage : [Nom]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRÉSENTATION ORGANISME -->
+    <section class="section section--alt">
+        <div class="holo-wrap" style="right:2rem; top:4rem; width:200px; height:200px; opacity:.6;">
+            <div class="holo-ring" style="width:100%; height:100%;"></div>
+        </div>
+        <div class="label rev">Structure d'accueil</div>
+        <h2 class="h2 rev">Laval <span class="grad">Agglomération</span></h2>
+        <p class="rev d1" style="color:var(--muted); max-width:700px; line-height:1.8; font-size:1rem; margin-bottom:1.5rem;">
+            Laval Agglomération est une communauté d'agglomération regroupant [X] communes autour de Laval, préfecture de la Mayenne.
+        </p>
+        <p class="rev d2" style="color:var(--muted); max-width:700px; line-height:1.8; font-size:1rem;">
+            Le Centre Initiation Nature propose tout au long de l'année des activités de découverte de la nature à destination des habitants de l'agglomération.
+        </p>
+    </section>
+
+    <!-- RAPPORTS -->
+    <section class="section">
+        <div class="label rev">Documents</div>
+        <h2 class="h2 rev">Rapports<br>de <span class="grad">stage</span></h2>
+        <div class="rapports-grid">
+            <div class="rapport-card rev d1">
+                <div class="rapport-label">Rapport de lancement</div>
+                <h3 class="rapport-title">Analyse du besoin<br>& planification</h3>
+                <p class="rapport-desc">Présentation du projet CIN, missions confiées, analyse de l'existant, veille technologique et recommandations.</p>
+                <a href="/rapport-de-lancement" class="btn-p" style="width:fit-content;">Lire →</a>
+            </div>
+            <div class="rapport-card rev d2">
+                <div class="rapport-label" style="color:var(--b2);">Rapport final</div>
+                <h3 class="rapport-title">Réalisations<br>& bilan personnel</h3>
+                <p class="rapport-desc">Missions réalisées, planning effectif, analyse critique des livrables et bilan personnel du stage.</p>
+                <a href="/rapport-final" class="btn-s" style="width:fit-content; opacity:.45; pointer-events:none;">À venir</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <div class="footer-logo">CIN · Rapport de Stage 2026</div>
+            <p style="margin-top:.4rem;">Laval Agglomération · Licence Pro MI-AW</p>
+        </div>
+        <p>Angular · Node.js · NoSQL · Keycloak · OVH</p>
+    </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
