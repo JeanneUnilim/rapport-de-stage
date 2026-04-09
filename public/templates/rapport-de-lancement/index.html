@@ -11,8 +11,6 @@
 </head>
 <body>
 
-  <canvas id="c"></canvas>
-
   <nav>
     <div class="nav-logo">Rapport · CIN Laval</div>
     <ul class="nav-links">
@@ -24,84 +22,89 @@
   </nav>
 
   <!-- PAGE HERO -->
-  <div class="page-hero">
-    <div class="holo-wrap" style="right:4rem; top:8rem; width:250px; height:250px; opacity:.7;">
-      <div class="holo-sphere" style="width:100%; height:100%;"></div>
+  <section class="section hero">
+    <div class="hero-content">
+      <div class="hero-tag"><span></span>Rapport de lancement</div>
+      <h1 class="hero-h1">Analyse<br>du <span class="grad">besoin</span><br>et planification</h1>
+      <div class="page-hero-meta">
+        <div class="meta-item">
+          <span class="meta-key">Étudiante</span>
+          <span class="meta-val">Jeanne Salvadori</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-key">Structure</span>
+          <span class="meta-val">Laval Agglomération</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-key">Échéance de remise</span>
+          <span class="meta-val">Après 3 semaines de stage</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-key">Remis le</span>
+          <span class="meta-val">12 avril 2026</span>
+        </div>
+      </div>
+      <a href="#presentation-projet" aria-label="Lire mon rapport de lancement" class="btn-p">Lire mon rapport de lancement</a>
     </div>
-    <div class="page-hero-label"><span></span>Rapport de lancement</div>
-    <h1>Analyse<br>du <span class="grad">besoin</span><br>& planification</h1>
-    <div class="page-hero-meta">
-      <div class="meta-item">
-        <span class="meta-key">Étudiante</span>
-        <span class="meta-val">Jeanne Salvadori</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-key">Structure</span>
-        <span class="meta-val">Laval Agglomération — CIN</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-key">Maître de stage</span>
-        <span class="meta-val">[Prénom Nom]</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-key">Date de remise</span>
-        <span class="meta-val">[Date]</span>
-      </div>
-    </div>
-  </div>
+  </section>
 
   <!-- 01 PRÉSENTATION DU PROJET -->
-  <section class="section">
+  <section class="section" id="presentation-projet">
     <div class="label rev">01 — Présentation du projet</div>
     <h2 class="h2 rev">Le Centre <span class="grad">Initiation Nature</span></h2>
 
     <div class="deux-col">
       <div class="prose rev d1">
         <h3>Contexte</h3>
-        <p>Laval Agglomération regroupe plusieurs communes autour de Laval, préfecture de la Mayenne. La collectivité porte de nombreux services publics, dont le Centre Initiation Nature (CIN), qui propose des activités de découverte de la nature tout au long de l'année — sorties naturalistes, ateliers pédagogiques, animations pour les scolaires et le grand public. Sa programmation annuelle comporte une quarantaine d'activités tous les six mois, réparties sur différents lieux du territoire.</p>
+        <p>Laval Agglomération regroupe plusieurs communes autour de Laval, préfecture de la Mayenne. La collectivité porte de nombreux services publics, dont le Centre Initiation Nature (CIN), qui propose des activités de découverte de la nature tout au long de l'année — sorties naturalistes, ateliers pédagogiques, animations pour les scolaires et le grand public. Sa programmation annuelle comporte une quarantaine d'activités tous les six mois, réparties sur différents lieux du territoire. Le CIN ne dispose pas de site vitrine mais seulement d'une page dédiée sur <a href="https://www.agglo-laval.fr/envie-de-bouger/tourisme-et-patrimoine/espaces-naturels-parcs-et-jardins/centre-dinitiation-a-la-nature-cin" target="_blank" rel="noopener noreferrer" aria-label="Visiter la page dédiée au CIN sur le site de Laval Agglomération" class="a">Laval Agglomération</a>. Son agenda, consultable <a href="https://www.agglo-laval.fr/fileadmin/Phototheque_agglo/Environnement_Nature/CIN/Agenda_CIN/agenda_CIN_S1_26_PDFHD.pdf" target="_blank" rel="noopener noreferrer" aria-label="Visualiser l'agenda du CIN" class="a">ici</a>, n'est disponible qu'en version papier ou numérisée.</p>
 
         <h3>Le problème</h3>
-        <p>Jusqu'à présent, la gestion des inscriptions repose entièrement sur des échanges par <strong>téléphone et e-mail</strong>. Ce processus représente <strong>un tiers du temps de travail</strong> de l'équipe — une charge considérable consacrée à des tâches à faible valeur ajoutée : saisie manuelle, relances, confirmation individuelle de chaque participant. Il n'existe aucun outil centralisé permettant de visualiser la programmation, de consulter les places disponibles ou de s'inscrire en autonomie.</p>
-
-        <h3>L'objectif</h3>
-        <p>Développer une application web permettant aux citoyens de <strong>consulter la programmation et de s'inscrire en ligne</strong>, et à l'équipe CIN de <strong>gérer les activités et les inscriptions</strong> depuis un back-office dédié. Le cahier des charges (version 1.4) a été rédigé en collaboration avec mon tuteur et validé lors d'une réunion avec l'équipe CIN.</p>
+        <p>La gestion des inscriptions repose entièrement sur des échanges par <strong>téléphone et e-mail</strong>, représentant <strong>un tiers du temps de travail</strong> de l'équipe — une charge consacrée à des tâches à faible valeur ajoutée : saisie manuelle, relances, confirmations individuelles. Il n'existe aucun outil centralisé pour visualiser la programmation, consulter les places disponibles ou s'inscrire en autonomie.</p>
 
         <h3>Périmètre du cahier des charges</h3>
-        <p>Il convient de noter que le cahier des charges, bien que détaillé sur le plan fonctionnel et technique, comporte deux points volontairement laissés ouverts. La <strong>charte graphique</strong> n'est pas encore définie — elle sera établie en cohérence avec l'identité visuelle du CIN dans une phase ultérieure. Par ailleurs, la nature très spécifique du projet rend une <strong>veille concurrentielle</strong> peu pertinente : il n'existe pas de concurrent direct à proprement parler. Le CIN a un besoin précis que les outils généralistes du marché (Eventbrite, Weezevent...) ne couvrent pas fidèlement, notamment sur la gestion des animateurs, l'intégration SSO Keycloak ou la distinction adultes/enfants dans les jauges de places.</p>
+        <p>Pour débuter le projet en bonne et due forme, j'ai proposé de rédiger un cahier des charges afin de redéfinir précisément le besoin du CIN. Deux points y sont volontairement laissés ouverts : la <strong>charte graphique</strong>, qui sera établie ultérieurement par le service communication, et la <strong>veille concurrentielle</strong>, peu pertinente ici — il n'existe pas de concurrent direct. Les outils généralistes du marché (Eventbrite, Weezevent…) ne couvrent pas fidèlement le besoin du CIN, notamment sur la gestion des animateurs ou l'intégration SSO Keycloak — une authentification centralisée propre à Laval Agglomération permettant aux agents de se connecter automatiquement.</p>
       </div>
 
-      <div class="feat-list rev d2">
-        <div class="feat-item">
-          <span class="feat-num">01</span>
-          <div class="feat-content">
-            <h3>Front-office public</h3>
-            <p>Agenda interactif filtrable par catégorie, fiches activités détaillées, formulaire d'inscription multi-participants, e-mails de confirmation et rappel automatique J-2 avec lieu précis et lien Google Maps.</p>
+      <div class="rev d2">
+        <div class="feat-list">
+          <div class="feat-item">
+            <span class="feat-num">01</span>
+            <div class="feat-content">
+              <h3>Front-office public</h3>
+              <p>Agenda interactif filtrable par catégorie, fiches activités détaillées, formulaire d'inscription multi-participants, e-mails de confirmation et rappel automatique J-2 avec lieu précis et lien Google Maps.</p>
+            </div>
+          </div>
+          <div class="feat-item">
+            <span class="feat-num">02</span>
+            <div class="feat-content">
+              <h3>Back-office admin</h3>
+              <p>Gestion des activités (création, modification, duplication, annulation avec notification e-mail aux inscrits), gestion des inscriptions, export PDF, paramétrage des catégories et animateurs.</p>
+            </div>
+          </div>
+          <div class="feat-item">
+            <span class="feat-num">03</span>
+            <div class="feat-content">
+              <h3>Annulation & désinscription</h3>
+              <p>En cas d'annulation d'une activité, un e-mail automatique précisant la cause est envoyé à tous les inscrits. La désinscription individuelle est prévue comme amélioration future.</p>
+            </div>
+          </div>
+          <div class="feat-item">
+            <span class="feat-num">04</span>
+            <div class="feat-content">
+              <h3>Sécurité & RGPD</h3>
+              <p>SSO Keycloak, HTTPS, rate limiting, consentement explicite au formulaire d'inscription, attention particulière sur la collecte de données de mineurs.</p>
+            </div>
           </div>
         </div>
-        <div class="feat-item">
-          <span class="feat-num">02</span>
-          <div class="feat-content">
-            <h3>Back-office admin</h3>
-            <p>Gestion des activités (création, modification, duplication, annulation avec notification e-mail aux inscrits), gestion des inscriptions, export PDF, paramétrage des catégories et animateurs.</p>
-          </div>
-        </div>
-        <div class="feat-item">
-          <span class="feat-num">03</span>
-          <div class="feat-content">
-            <h3>Annulation & désinscription</h3>
-            <p>En cas d'annulation d'une activité (météo, imprévu), un e-mail automatique précisant la cause est envoyé à tous les inscrits. La désinscription individuelle est prévue comme amélioration future.</p>
-          </div>
-        </div>
-        <div class="feat-item">
-          <span class="feat-num">04</span>
-          <div class="feat-content">
-            <h3>Sécurité & RGPD</h3>
-            <p>SSO Keycloak, HTTPS, rate limiting, consentement explicite au formulaire d'inscription, attention particulière sur la collecte de données de mineurs (date de naissance).</p>
-          </div>
+
+        <div class="projet-block projet-block--sep">
+          <h3>L'objectif</h3>
+          <p>Développer une application web permettant aux citoyens de <strong>consulter la programmation et de s'inscrire en ligne</strong>, et à l'équipe CIN de <strong>gérer les activités et les inscriptions</strong> depuis un back-office dédié — de l'analyse du besoin jusqu'à la mise en production.</p>
         </div>
       </div>
     </div>
   </section>
+  
 
   <!-- 02 MISSIONS & PLANNING -->
   <section class="section section--alt">
@@ -143,8 +146,6 @@
         </div>
         <div class="at-title">Début du développement — socle technique</div>
         <div class="at-desc">J'ai repris le socle initialisé par mon tuteur sur GitLab — la connexion SSO Keycloak et la structure du serveur étaient déjà en place. Mon travail a consisté à structurer l'API Node.js avec Express, à connecter MongoDB via Mongoose et à créer l'ensemble des modèles/schémas : Activité, Inscription, Participant, Catégorie et Animateur. J'ai également configuré le CORS, le rate limiting, les index MongoDB et mis en place les variables d'environnement via le package config. Côté front, j'ai créé les interfaces TypeScript et les services HTTP Angular correspondants. J'ai été surprise par la rapidité de mise en place du back-end avec Mongoose — une fois le premier modèle compris, les suivants sont allés très vite. J'ai également trouvé le pattern controller/route très lisible une fois le premier écrit. Parmi les difficultés rencontrées : express-mongo-sanitize s'est révélé incompatible avec Express 5 et a dû être retiré, la convention de nommage des fichiers Angular diffère de la documentation officielle (nouvelle convention sans suffixe .service), et la gestion des branches main vs master entre les deux projets a nécessité une attention particulière. J'ai aussi découvert GitLab à cette occasion, que je n'avais jamais utilisé contrairement à GitHub.</div>
-    </div>
-
     </div>
 
     <!-- Planning prévisionnel -->
@@ -312,6 +313,7 @@
     </div>
   </footer>
 
+  <button class="btn-top" id="btn-top" aria-label="Retour en haut de la page" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
   <script src="/assets/js/main.js"></script>
 </body>
 </html>
