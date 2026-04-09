@@ -374,7 +374,7 @@ nav {
   font-weight: 700;
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .prose h3:first-child { margin-top: 0; }
@@ -417,7 +417,6 @@ nav {
 
 .projet-block--sep {
   margin-top: 2rem;
-  padding-top: 2rem;
 }
 
 
@@ -446,13 +445,13 @@ nav {
 .feat-num {
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1;
   background: linear-gradient(135deg, var(--v1), var(--p1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  min-width: 2.5rem;
+  min-width: 4rem;
   opacity: .7;
 }
 
@@ -748,6 +747,7 @@ footer p {
   background-clip: text;
   grid-row: 1;
   grid-column: 1;
+  min-width: 4rem;
 }
 
 .at-arrow-wrap {
