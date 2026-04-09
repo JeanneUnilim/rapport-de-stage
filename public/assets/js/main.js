@@ -17,76 +17,6 @@ function toggleTheme() {
   }
 })()
 
-// Nébuleuse canvas
-;(function () {
-  const canvas = document.getElementById('c')
-  if (!canvas) return
-  const ctx = canvas.getContext('2d')
-  let W, H, t = 0
-
-  const blobs = [
-    { x: .22, y: .28, r: .38, c: '#a855f7', ph: 0 },
-    { x: .78, y: .62, r: .30, c: '#ec4899', ph: 1.8 },
-    { x: .50, y: .85, r: .24, c: '#818cf8', ph: 3.5 },
-    { x: .12, y: .72, r: .20, c: '#7c3aed', ph: 5 },
-    { x: .88, y: .18, r: .22, c: '#f472b6', ph: 2.2 },
-  ]
-
-  const stars = Array.from({ length: 220 }, () => ({
-    x:  Math.random(),
-    y:  Math.random(),
-    r:  Math.random() * 1.1 + .2,
-    o:  Math.random() * .7 + .25,
-    ph: Math.random() * Math.PI * 2,
-    sp: Math.random() * .6 + .3,
-  }))
-
-  function resize() {
-    W = canvas.width  = innerWidth
-    H = canvas.height = innerHeight
-  }
-  resize()
-  addEventListener('resize', resize)
-
-  ;(function draw() {
-    ctx.clearRect(0, 0, W, H)
-    t += .0025
-
-    blobs.forEach(b => {
-      const bx = (b.x + Math.sin(t * .35 + b.ph) * .05) * W
-      const by = (b.y + Math.cos(t * .28 + b.ph) * .05) * H
-      const br = b.r * Math.min(W, H)
-      const g  = ctx.createRadialGradient(bx, by, 0, bx, by, br)
-      g.addColorStop(0,  b.c + '28')
-      g.addColorStop(.5, b.c + '12')
-      g.addColorStop(1,  'transparent')
-      ctx.beginPath()
-      ctx.arc(bx, by, br, 0, Math.PI * 2)
-      ctx.fillStyle = g
-      ctx.fill()
-    })
-
-    stars.forEach(s => {
-      const tw = Math.sin(t * s.sp + s.ph) * .3 + .7
-      ctx.beginPath()
-      ctx.arc(s.x * W, s.y * H, s.r, 0, Math.PI * 2)
-      ctx.fillStyle = `rgba(237,232,248,${s.o * tw})`
-      ctx.fill()
-    })
-
-    requestAnimationFrame(draw)
-  })()
-
-  document.addEventListener('mousemove', e => {
-    const nx = (e.clientX / W - .5) * .025
-    const ny = (e.clientY / H - .5) * .025
-    blobs.forEach((b, i) => {
-      b.x += (nx * (i % 2 ? -.6 : 1)  - (b.x - .5)) * .008
-      b.y += (ny * (i % 2 ?  1 : -.7) - (b.y - .4)) * .008
-    })
-  })
-})()
-
 document.addEventListener('DOMContentLoaded', () => {
 
   // Lien actif nav
@@ -117,5 +47,34 @@ document.addEventListener('DOMContentLoaded', () => {
       s3.style.transform = 'rotateX(22deg) rotateY(-18deg)'
     })
   }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    if (link.getAttribute('href') === window.location.pathname) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+
+  const hero = document.querySelector('.hero');
+  const heroBefore = document.querySelector('.hero');
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      if (scrollY < window.innerHeight) {
+        hero.style.setProperty('--parallax', `${scrollY * 0.6}px`);
+      }
+    });
+  });
+
+  // Bouton de scoll vers le haut
+  const btnTop = document.getElementById('btn-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 0.5) {
+      btnTop.classList.add('visible');
+    } else {
+      btnTop.classList.remove('visible');
+    }
+  });
 
 })

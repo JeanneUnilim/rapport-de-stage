@@ -18,6 +18,7 @@ const MIME = {
   '.jpg' : 'image/jpeg',
   '.svg' : 'image/svg+xml',
   '.webp': 'image/webp',
+  '.pdf' : 'application/pdf',
 }
 
 // Routes
@@ -25,6 +26,7 @@ const ROUTES = {
   '/'          : '/index.html',
   '/rapport-de-lancement' : '/templates/rapport-de-lancement/index.html',
   '/rapport-final'     : '/templates/rapport-final/index.html',
+  '/mentions-legales' : '/templates/mentions-legales/index.html',
 }
 
 // Fonction qui lit et envoie un fichier

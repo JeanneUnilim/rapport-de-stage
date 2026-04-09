@@ -124,123 +124,6 @@ nav {
   color: var(--b2);
 }
 
-/* Formes holographiques
-.holo-blob {
-  border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%;
-  background: linear-gradient(
-    135deg,
-    rgba(192,132,252,.55),
-    rgba(244,114,182,.45),
-    rgba(129,140,248,.5),
-    rgba(103,232,249,.4)
-  );
-  animation: morph 8s ease-in-out infinite;
-  position: relative;
-}
-
-.holo-blob::before {
-  content: '';
-  position: absolute;
-  inset: 6px;
-  border-radius: inherit;
-  background: linear-gradient(
-    225deg,
-    rgba(255,255,255,.35),
-    rgba(255,255,255,0) 50%,
-    rgba(103,232,249,.2)
-  );
-}
-
-.holo-blob::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    45deg,
-    rgba(244,114,182,.3),
-    rgba(192,132,252,.2) 40%,
-    rgba(96,165,250,.3)
-  );
-  mix-blend-mode: overlay;
-  animation: shimmer 4s ease-in-out infinite alternate;
-}
-
-.holo-sphere {
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 35% 35%,
-    rgba(255,255,255,.9),
-    rgba(192,132,252,.8) 20%,
-    rgba(244,114,182,.7) 45%,
-    rgba(96,165,250,.6) 70%,
-    rgba(7,5,20,.4)
-  );
-  box-shadow:
-    0 0 60px rgba(192,132,252,.3),
-    0 0 120px rgba(244,114,182,.15),
-    inset -15px -15px 30px rgba(0,0,0,.3),
-    inset 8px 8px 20px rgba(255,255,255,.15);
-  animation: float-sphere 7s ease-in-out infinite;
-}
-
-.holo-ring {
-  border-radius: 50%;
-  border: 18px solid transparent;
-  background:
-    linear-gradient(var(--bg), var(--bg)) padding-box,
-    linear-gradient(135deg, var(--v1), var(--p1), var(--b2), var(--c1)) border-box;
-  box-shadow:
-    0 0 40px rgba(192,132,252,.25),
-    inset 0 0 20px rgba(244,114,182,.15);
-  animation: spin-ring 12s linear infinite;
-}
-
-.holo-capsule {
-  border-radius: 100px;
-  background: linear-gradient(
-    135deg,
-    rgba(192,132,252,.7),
-    rgba(244,114,182,.6),
-    rgba(129,140,248,.7)
-  );
-  box-shadow:
-    0 0 40px rgba(192,132,252,.3),
-    inset 0 4px 12px rgba(255,255,255,.25),
-    inset 0 -4px 12px rgba(0,0,0,.2);
-  animation: float-sphere 9s ease-in-out infinite reverse;
-}
-
-.holo-cube-wrap {
-  perspective: 600px;
-  animation: float-sphere 10s ease-in-out infinite;
-}
-
-.holo-cube {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  animation: spin-cube 14s linear infinite;
-  position: relative;
-}
-
-.holo-face {
-  position: absolute;
-  inset: 0;
-  border: 1.5px solid rgba(192,132,252,.45);
-  background: rgba(168,85,247,.08);
-  backdrop-filter: blur(2px);
-}
-
-.holo-face:nth-child(1) { transform: translateZ(50%); }
-.holo-face:nth-child(2) { transform: rotateY(180deg) translateZ(50%); }
-.holo-face:nth-child(3) { transform: rotateY(90deg)  translateZ(50%); }
-.holo-face:nth-child(4) { transform: rotateY(-90deg) translateZ(50%); }
-.holo-face:nth-child(5) { transform: rotateX(90deg)  translateZ(50%); }
-.holo-face:nth-child(6) { transform: rotateX(-90deg) translateZ(50%); }
-
-*/
-
 /* Timeline */
 .timeline {
   position: relative;
@@ -312,22 +195,62 @@ nav {
   max-width: 620px;
 }
 
+/* ── ORGANISME ── */
+.organisme-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.organisme-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.organisme-logo img {
+  max-width: 400px;
+  opacity: .85;
+}
+
+.organisme-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.organisme-text .btn-p {
+  align-self: flex-start;
+}
+
+.organisme-text p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.organisme-text strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
 
 /* ── INFO GRID ── */
 .info-grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  overflow: hidden;
-  margin-top: 4rem;
 }
 
 .info-cell {
   background: var(--bg);
-  padding: 2rem 2.2rem;
+  padding: 1rem 2.2rem;
   transition: background .3s;
 }
 
@@ -457,13 +380,46 @@ nav {
 .prose h3:first-child { margin-top: 0; }
 
 .prose p {
-  font-size: .95rem;
+  font-size: .88rem;
   color: var(--muted);
   line-height: 1.85;
   margin-bottom: 1.2rem;
 }
 
 .prose strong { color: var(--text); font-weight: 400; }
+
+/* Rapport de lancement - Présentation du projet */
+/* ── PROJET FULL WIDTH ── */
+.projet-full {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 1.5rem;
+}
+
+.projet-block h3 {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: .8rem;
+}
+
+.projet-block p {
+  font-size: .85rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.projet-block strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.projet-block--sep {
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
 
 /* ── DEUX COLONNES ── */
 .deux-col {
@@ -508,7 +464,7 @@ nav {
 }
 
 .feat-content p {
-  font-size: .83rem;
+  font-size: .78rem;
   color: var(--muted);
   line-height: 1.6;
 }
@@ -739,7 +695,7 @@ nav {
 footer {
   position: relative;
   z-index: 2;
-  padding: 3.5rem 4rem;
+  padding: 2rem 4rem;
   border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
@@ -860,6 +816,41 @@ footer p {
 .at-item:last-child .at-desc {
   border-bottom: none;
 }
+
+/* Bouton scroll vers le haut */
+.btn-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--v2), var(--p2));
+  color: #fff;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 24px var(--gv);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .3s, transform .3s;
+  z-index: 100;
+}
+
+.btn-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mentions légales */
+
+.section-ml {
+  max-height: 60vh !important;
+}
+
+
 
 @media (max-width: 768px) {
   .at-item {

@@ -25,9 +25,20 @@ a {
   color: inherit;
 }
 
+.a {
+  color: var(--v1);
+  border-bottom: 1px solid var(--v1);
+  transition: opacity .25s;
+}
+
+.a:hover {
+  opacity: .7;
+}
+
 /* Mise en forme de l'html et du body */
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 body {
@@ -37,20 +48,6 @@ body {
   font-weight: 300;
   overflow-x: hidden;
   transition: background .4s, color .4s;
-}
-
-/* canvas de la nébuleuse et le grain */
-#c {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.4;
-  transition: opacity .4s;
-}
-
-[data-theme="dark"] #c {
-  opacity: 0.85;
 }
 
 body::after {
@@ -67,13 +64,15 @@ body::after {
 .section {
   position: relative;
   z-index: 2;
-  padding: 8rem 4rem;
+  padding: 4rem 4rem;
 }
 
 .section--alt {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: var(--bg2);;
+}
+
+.section--alt2 {
+  background: var(--bg3);;
 }
 
 .holo-wrap {
@@ -83,28 +82,122 @@ body::after {
 }
 
 /* Layout du hero-header */
+
 .hero {
-  min-height: 100vh;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 4rem 4rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background-image: url('/assets/images/hero-header.svg');
+  background-size: cover;
+  background-position: bottom center;
+  background-attachment: scroll; /* ← parallaxe */
+  transform: translateY(var(--parallax, 0));
+  will-change: transform;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(16px);
+  animation: up .85s 1.1s forwards;
+}
+.hero-meta {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(16px);
+  animation: up .85s 1.1s forwards;
+}
+
+.hero-panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  border-left: 1px solid var(--border);
+  background: var(--bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 7rem;
+  z-index: 2;
+}
+
+.panel-item {
+  padding: 1.8rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-item:last-child {
+  border-bottom: none;
+}
+
+/* Force l'affichage du contenu du hero même si le scroll reveal tarde */
+.hero .hero-content {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: up .85s forwards; /* Ton animation existante */
+}
+
+/* Le conteneur du fond */
+.hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
   overflow: hidden;
+}
+
+/* L'image SVG */
+.hero-bg-wrapper img {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  object-fit: cover;
+  object-position: bottom;
+  opacity: 0.18;
+  display: block;
 }
 
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
 .hero-tag {
   display: inline-flex;
   align-items: center;
   gap: .7rem;
-  font-size: .7rem;
+  font-size: .8rem;
+  font-weight: 500;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--v1);
+  color: var(--v2);
   margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(16px);
@@ -121,7 +214,7 @@ body::after {
 .hero-h1 {
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(2rem, 10vw, 9.5rem);
+  font-size: clamp(2rem, 10vw, 6.5rem);
   line-height: .88;
   letter-spacing: -.03em;
   margin-bottom: 2.5rem;
@@ -135,7 +228,7 @@ body::after {
   color: var(--muted);
   max-width: 500px;
   line-height: 1.75;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(16px);
   animation: up .85s .7s forwards;
@@ -151,10 +244,40 @@ body::after {
 }
 
 /* Page hero de la page de lancement */
+
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 4rem 4rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background-image: url('/assets/images/hero-header.svg');
+  background-size: cover;
+  background-position: bottom center;
+  background-attachment: scroll; /* ← parallaxe */
+  transform: translateY(var(--parallax, 0));
+  will-change: transform;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .page-hero {
   position: relative;
+  height: 100vh;
+  align-items: center;
   z-index: 2;
-  padding: 14rem 4rem 6rem;
+  padding: 1rem 4rem 6rem 4rem;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
@@ -168,9 +291,32 @@ body::after {
   display: flex;
   align-items: center;
   gap: .7rem;
-  opacity: 0;
+  opacity: -1;
   transform: translateY(16px);
   animation: up .7s .2s forwards;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; /* remonte sous la nav */
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background-image: url('/assets/images/hero-header-lancement.jpg');
+  background-size: cover;
+  background-position: bottom center;
+  background-attachment: scroll;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page-hero-label,
+.page-hero h1,
+.page-hero-meta {
+  position: relative;
+  z-index: 1;
 }
 
 .page-hero-label span {
@@ -183,7 +329,7 @@ body::after {
 .page-hero h1 {
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(2.8rem, 7vw, 7rem);
+  font-size: clamp(2.8rem, 7vw, 5rem);
   line-height: .9;
   letter-spacing: -.03em;
   margin-bottom: 2rem;
@@ -199,22 +345,27 @@ body::after {
   opacity: 0;
   transform: translateY(16px);
   animation: up .85s .6s forwards;
+  margin: 3rem 0;
 }
 
 .meta-item {
   display: flex;
   flex-direction: column;
-  gap: .3rem;
+  gap: .2rem;
 }
 
 .meta-key {
+  display: block;
   font-size: .65rem;
+  font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--muted2);
+  color: var(--v1);
+  margin-bottom: .7rem;
 }
 
 .meta-val {
+  display: block;
   font-size: .88rem;
   color: var(--muted);
 }

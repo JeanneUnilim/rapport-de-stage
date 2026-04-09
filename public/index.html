@@ -11,8 +11,6 @@
 </head>
 <body>
 
-    <canvas id="c"></canvas>
-
     <nav>
         <div class="nav-logo">Rapport · CIN Laval</div>
         <ul class="nav-links">
@@ -20,35 +18,9 @@
             <li><a href="/rapport-de-lancement">Lancement</a></li>
             <li><a href="/rapport-final">Rapport final</a></li>
         </ul>
-        <button class="btn-theme" onclick="toggleTheme()" id="theme-btn">☽ Mode sombre</button>
+        <button class="btn-theme" onclick="toggleTheme()" id="theme-btn" aria-label="Activer le mode sombre">☽ Mode sombre</button>
     </nav>
     <section class="section hero">
-
-        <!-- Formes holographiques -->
-        <div class="holo-wrap" style="right:-60px; top:12vh; width:300px; height:300px;">
-            <div class="holo-sphere" style="width:100%; height:100%;"></div>
-        </div>
-        <div class="holo-wrap" style="right:260px; top:55vh; width:120px; height:44px;">
-            <div class="holo-capsule" style="width:100%; height:100%; transform:rotate(-30deg);"></div>
-        </div>
-        <div class="holo-wrap" style="right:80px; bottom:10vh; width:160px; height:160px;">
-            <div class="holo-blob" style="width:100%; height:100%; animation-delay:-3s;"></div>
-        </div>
-        <div class="holo-wrap" style="left:-40px; bottom:15vh; width:220px; height:220px; opacity:.5;">
-            <div class="holo-blob" style="width:100%; height:100%; animation-delay:-6s;"></div>
-        </div>
-        <div class="holo-wrap" style="left:38%; top:8vh; width:80px; height:80px;">
-            <div class="holo-cube-wrap" style="width:100%; height:100%;">
-            <div class="holo-cube">
-                <div class="holo-face"></div>
-                <div class="holo-face"></div>
-                <div class="holo-face"></div>
-                <div class="holo-face"></div>
-                <div class="holo-face"></div>
-                <div class="holo-face"></div>
-            </div>
-            </div>
-        </div>
 
         <!-- Contenu -->
         <div class="hero-content">
@@ -59,55 +31,58 @@
             Nature
             </h1>
             <p class="hero-sub">
-            Développement d'une application web de gestion des activités et réservations pour le CIN de Laval — Angular · Node.js · NoSQL
+            Développement d'une application web de gestion des activités et réservations pour le CIN de Laval Agglomération.<br>Angular · Node.js · NoSQL
             </p>
             <div class="hero-ctas">
-            <a href="/rapport-de-lancement" class="btn-p">Rapport de lancement →</a>
-            <a href="/rapport-final" class="btn-s">Rapport final ↓</a>
+            <a href="#rapports" class="btn-p">Mes rapports →</a>
+            <a href="#organisme" class="btn-s">En savoir plus sur mon stage ↓</a>
             </div>
         </div>
 
-    </section>
-
-    <!-- INFOS -->
-    <section class="section">
-        <div class="label rev">Informations</div>
-        <div class="info-grid rev d1">
-            <div class="info-cell">
-                <span class="info-cell-num">01</span>
-                <h3>Étudiant</h3>
-                <p>Jeanne Salvadori<br>Licence Pro MI-AW - Deuxième année<br>Université de Limoges</p>
+        <!-- HERO -->
+        <div class="hero-panel">
+            <div class="panel-item">
+                <span class="meta-key">Étudiante</span>
+                <span class="meta-val">Jeanne Salvadori<br>Licence Pro MI-AW<br>Université de Limoges</span>
             </div>
-            <div class="info-cell">
-                <span class="info-cell-num">02</span>
-                <h3>Organisme d'accueil</h3>
-                <p>Laval Agglomération — Service data et urbanisation des SI<br>Centre Initiation Nature<br>1 place du Général Ferrié, 53000 Laval</p>
+            <div class="panel-item">
+                <span class="meta-key">Structure</span>
+                <span class="meta-val">Laval Agglomération<br>Service data & SI<br>1 Place du Général Ferrié - 53000 Laval</span>
             </div>
-            <div class="info-cell">
-                <span class="info-cell-num">03</span>
-                <h3>Stage</h3>
-                <p>Développement web full-stack<br>24 Mars – 22 Mai 2026<br>Maître de stage : Arnaud Gauguain</p>
+            <div class="panel-item">
+                <span class="meta-key">Maître de stage</span>
+                <span class="meta-val">Arnaud Gauguain<br>Responsable du service data et SI</span>
+                <span class="meta-val"><a href="mailto:arnaud.gauguain@agglo-laval.fr" aria-label="Envoyer un mail à Arnaud Gauguain" class="a">arnaud.gauguain@agglo-laval.fr></a></span>
+            </div>
+            <div class="panel-item">
+                <span class="meta-key">Période</span>
+                <span class="meta-val">280h soit 7h/jour et 35h/semaine</span>
+                <span class="meta-val">24 Mars – 22 Mai 2026</span>
             </div>
         </div>
     </section>
 
     <!-- PRÉSENTATION ORGANISME -->
-    <section class="section section--alt">
-        <div class="holo-wrap" style="right:2rem; top:4rem; width:200px; height:200px; opacity:.6;">
-            <div class="holo-ring" style="width:100%; height:100%;"></div>
-        </div>
+    <section class="section section--alt" id="organisme">
         <div class="label rev">Structure d'accueil</div>
         <h2 class="h2 rev">Laval <span class="grad">Agglomération</span></h2>
-        <p class="rev d1" style="color:var(--muted); max-width:700px; line-height:1.8; font-size:1rem; margin-bottom:1.5rem;">
-            Laval Agglomération est une communauté d'agglomération regroupant 34 communes autour de Laval, préfecture de la Mayenne.
-        </p>
-        <p class="rev d2" style="color:var(--muted); max-width:700px; line-height:1.8; font-size:1rem;">
-            Le Centre Initiation Nature propose tout au long de l'année des activités de découverte de la nature à destination des habitants de l'agglomération.
-        </p>
+        
+        <div class="organisme-grid rev d1">
+            
+            <div class="organisme-text">
+                <p><a href="https://www.agglo-laval.fr" target="_blank" rel="noopener noreferrer" aria-label="Visiter le site de Laval Agglomération (nouvel onglet)" class="a">Laval Agglomération</a> est une communauté d'agglomération regroupant 34 communes autour de Laval, préfecture de la Mayenne (53). C'est une structure publique au service de ses citoyens qui coordonne de nombreux services : la Direction de l'Urbanisme, la Direction des Finances, la Direction Déchets et Économie Circulaire, ou encore la Direction de la Communication et de l'Attractivité (au sein de laquelle j'avais déjà effectué un premier stage en 2025).</p>
+                <p>Pour ce second stage, j'ai intégré le service <strong>Data et urbanisation des Systèmes d'Information</strong>, qui regroupe plusieurs pôles : géographie, infrastructure technique et développement applicatif. C'est dans le service Études et Développement et dans ce cadre que m'a été confié le projet du <strong>Centre Initiation Nature</strong>. Le CIN est un service de Laval Agglomération proposant tout au long de l'année des activités de découverte de la nature, ouvertes aux habitants de l'agglomération comme à tout visiteur.</p>
+                <p>Sur ces 9 semaines, ma mission consiste à concevoir et développer une application web de gestion des activités et des réservations du CIN, allant de l'analyse du besoin jusqu'à la mise en production.</p>
+                <a href="#rapports" aria-label="Aller à la section Rapports" class="btn-p">Voir les rapports ↓</a>
+            </div>
+            <div class="organisme-logo">
+                <img src="/assets/images/logo_lavalagglo_white.png" alt="Logo Laval Agglomération" />
+            </div>
+        </div>
     </section>
 
     <!-- RAPPORTS -->
-    <section class="section">
+    <section class="section section--alt2" id="rapports">
         <div class="label rev">Documents</div>
         <h2 class="h2 rev">Rapports<br>de <span class="grad">stage</span></h2>
         <div class="rapports-grid">
@@ -126,14 +101,47 @@
         </div>
     </section>
 
+    <!-- Réalisations -->
+    <section class="section section--alt" id="realisations">
+        <div class="label rev">Réalisations</div>
+        <h2 class="h2 rev">Ce que j'ai <span class="grad">produit</span></h2>
+
+        <div class="feat-list" style="margin-top: 3rem;">
+            <div class="feat-item rev d1">
+            <span class="feat-num">01</span>
+                <div class="feat-content">
+                    <h3>Cahier des charges v1.4</h3>
+                    <p>Rédigé en collaboration avec mon tuteur sur la première semaine et demie de stage, validé lors d'une réunion avec l'équipe CIN. Il définit l'ensemble des fonctionnalités attendues, les contraintes techniques et le périmètre du projet.</p>
+                    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;"></div>
+                        <a href="/assets/documents/cahier-des-charges-v1.4-CIN.pdf" target="_blank" rel="noopener noreferrer" class="btn-s" style="font-size:.75rem; padding:.6rem 1.4rem;">Cahier des charges (PDF) →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="feat-item rev d2">
+                <span class="feat-num">02</span>
+                <div class="feat-content">
+                    <h3>Dépôts GitLab privés</h3>
+                    <p>Le code source de l'application est hébergé sur le GitLab interne de la Ville de Laval. Les dépôts sont privés et accessibles uniquement depuis le réseau de Laval Agglomération.</p>
+                    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+                        <a href="https://git.laval.fr/CIN/cin-metier/cin-metier-back" target="_blank" rel="noopener noreferrer" class="btn-p" style="font-size:.75rem; padding:.6rem 1.4rem;">Back-end →</a>
+                        <a href="https://git.laval.fr/CIN/cin-metier/cin-metier-front" target="_blank" rel="noopener noreferrer" class="btn-s" style="font-size:.75rem; padding:.6rem 1.4rem;">Front-end →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div>
             <div class="footer-logo">CIN · Rapport de Stage 2026</div>
             <p style="margin-top:.4rem;">Laval Agglomération · Licence Pro MI-AW</p>
         </div>
+        <a href="/mentions-legales" aria-label="Mentions légales" class="a">Mentions légales</a>
         <p>Angular · Node.js · NoSQL · Keycloak · OVH</p>
     </footer>
 
+    <button class="btn-top" id="btn-top" aria-label="Retour en haut de la page" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
   <script src="/assets/js/main.js"></script>
+  
 </body>
 </html>
