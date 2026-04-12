@@ -1,19 +1,38 @@
 // Choix du thème
+function updateLogo(isDark) {
+  const logo = document.getElementById('logo-agglo')
+  if (!logo) return
+  logo.src = isDark
+    ? '/assets/images/logo_lavalagglo_white.png'
+    : '/assets/images/logo_lavalagglo.png'
+}
+
 function toggleTheme() {
   const isDark = document.documentElement.dataset.theme === 'dark'
-  document.documentElement.dataset.theme = isDark ? '' : 'dark'
-  document.getElementById('theme-btn').textContent = isDark ? '☽ Mode sombre' : '☀ Mode clair'
-  localStorage.setItem('theme', isDark ? 'light' : 'dark')
+  const newDark = !isDark
+  document.documentElement.dataset.theme = newDark ? 'dark' : ''
+  const btn = document.getElementById('theme-btn')
+  btn.textContent = newDark ? '☀ Mode clair' : '☽ Mode sombre'
+  btn.setAttribute('aria-label', newDark ? 'Activer le mode clair' : 'Activer le mode sombre')
+  localStorage.setItem('theme', newDark ? 'dark' : 'light')
+  updateLogo(newDark)
 }
 
 ;(function () {
   const saved = localStorage.getItem('theme')
-  if (saved === 'dark') {
+  const isDark = saved === 'dark'
+  if (isDark) {
     document.documentElement.dataset.theme = 'dark'
     document.addEventListener('DOMContentLoaded', () => {
       const btn = document.getElementById('theme-btn')
-      if (btn) btn.textContent = '☀ Mode clair'
+      if (btn) {
+        btn.textContent = '☀ Mode clair'
+        btn.setAttribute('aria-label', 'Activer le mode clair')
+      }
+      updateLogo(true)
     })
+  } else {
+    document.addEventListener('DOMContentLoaded', () => updateLogo(false))
   }
 })()
 

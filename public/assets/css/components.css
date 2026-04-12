@@ -550,7 +550,8 @@ nav {
   letter-spacing: .08em;
   text-transform: uppercase;
   font-size: .8rem;
-  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
   padding-left: 2.5rem;
 }
 
@@ -942,7 +943,7 @@ footer p {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.1rem;
   }
 
   /* Le numéro ne rétrécit pas */
@@ -972,12 +973,14 @@ footer p {
 
   /* Titre avec margin-bottom */
   .at-title {
-    margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.75rem;
   }
 
   /* Description sans bordure */
   .at-desc {
     border: none !important;
+    padding-bottom: 0.75rem;
   }
 
   #presentation-projet .prose p {
