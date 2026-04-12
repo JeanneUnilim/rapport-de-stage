@@ -1,3 +1,184 @@
-<link rel="stylesheet" href="/assets/css/color.css">
-<link rel="stylesheet" href="/assets/css/main.css">
-<link rel="stylesheet" href="/assets/css/components.css">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page introuvable · CIN Laval</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="/assets/css/color.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <style>
+        .page-404 {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .page-404::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background-image: url('/assets/images/hero-header.svg');
+            background-size: cover;
+            background-position: bottom center;
+            opacity: 0.10;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .err-num {
+            font-family: var(--font-d);
+            font-weight: 800;
+            font-size: clamp(6rem, 22vw, 16rem);
+            line-height: .85;
+            letter-spacing: -.04em;
+            background: linear-gradient(115deg, var(--v1), var(--p1), var(--b1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(24px);
+            animation: up .85s .2s forwards;
+        }
+
+        .err-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--v2);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: up .7s .05s forwards;
+        }
+
+        .err-tag span {
+            display: inline-block;
+            width: 22px;
+            height: 1px;
+            background: var(--v1);
+        }
+
+        .err-title {
+            font-family: var(--font-d);
+            font-weight: 700;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            letter-spacing: -.02em;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: up .8s .5s forwards;
+        }
+
+        .err-sub {
+            font-size: clamp(.85rem, 1.3vw, 1rem);
+            color: var(--muted);
+            max-width: 420px;
+            line-height: 1.75;
+            margin-top: .9rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: up .8s .65s forwards;
+        }
+
+        .err-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2.5rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: up .8s .8s forwards;
+        }
+
+        .err-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--gv) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .err-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">Rapport · CIN Laval</a>
+        <ul class="nav-links">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/rapport-de-lancement">Lancement</a></li>
+            <li><a href="/rapport-final">Rapport final</a></li>
+        </ul>
+        <button class="btn-theme" onclick="toggleTheme()" id="theme-btn" aria-label="Activer le mode sombre">☽ Mode sombre</button>
+    </nav>
+
+    <main class="page-404">
+        <div class="err-glow"></div>
+
+        <div class="err-tag"><span></span>Erreur</div>
+        <div class="err-num">404</div>
+        <h1 class="err-title">Page introuvable</h1>
+        <p class="err-sub">La page que vous cherchez n'existe pas ou a été déplacée. Retournez à l'accueil pour continuer.</p>
+
+        <div class="err-actions">
+            <a href="/" class="btn-p">← Retour à l'accueil</a>
+            <a href="/rapport-final" class="btn-s">Rapport final →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <div class="footer-logo">CIN · Rapport de Stage 2026</div>
+            <p style="margin-top:.4rem;">Laval Agglomération · Licence Pro MI-AW</p>
+        </div>
+        <a href="/mentions-legales" aria-label="Mentions légales" class="a">Mentions légales</a>
+        <p>Angular · Node.js · NoSQL · Keycloak · OVH</p>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
