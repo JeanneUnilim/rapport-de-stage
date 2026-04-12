@@ -462,4 +462,81 @@ body::after {
   50%     { opacity: 1; }
 }
 
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+
+  .section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  footer {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Hero homepage */
+  .hero {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 8.5rem 1.5rem 2rem;
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .hero-panel {
+    position: static;
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  .panel-item {
+    flex: 1 1 50%;
+    padding: 1.2rem 1.5rem;
+    border-right: 1px solid var(--border);
+    margin-top: 0 !important;
+  }
+
+  .panel-item:nth-child(even) {
+    border-right: none;
+  }
+
+  /* Hero page rapport */
+  .page-hero {
+    padding: 5rem 1.5rem 3rem;
+    height: auto;
+    min-height: 60vh;
+  }
+
+  .page-hero-meta {
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  /* Titres */
+  .h2 {
+    font-size: clamp(1.35rem, 6vw, 1.7rem);
+  }
+
+  .hero-h1 {
+    font-size: clamp(2rem, 12vw, 3.5rem);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
+
+  /* Évite les débordements de texte */
+  h1, h2, h3, p, li, code, div {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+}
 
