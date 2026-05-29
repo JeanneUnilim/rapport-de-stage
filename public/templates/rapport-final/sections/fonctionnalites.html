@@ -1,0 +1,186 @@
+<!-- 01b FONCTIONNALITÉS -->
+<section class="section section--alt2" id="fonctionnalites">
+  <div class="label rev">01b — Fonctionnalités illustrées</div>
+  <h2 class="h2 rev">L'application en<br><span class="grad">images</span></h2>
+  <p class="rev d1" style="color:var(--muted); font-size:.88rem; line-height:1.8; margin-bottom:2rem;">Voici quelques captures d'écran de l'application pour chaque fonctionnalité principale, dans l'ordre du parcours utilisateur. Naviguez d'onglet en onglet pour les découvrir et cliquez sur les photos pour les agrandir.</p>
+
+  <div class="tabs-wrap rev">
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('feat', 'calendrier', this)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:.35rem;"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Calendrier
+      </button>
+      <button class="tab-btn" onclick="switchTab('feat', 'activites', this)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:.35rem;"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Activités
+      </button>
+      <button class="tab-btn" onclick="switchTab('feat', 'inscriptions', this)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:.35rem;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Inscriptions
+      </button>
+      <button class="tab-btn" onclick="switchTab('feat', 'emails', this)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:.35rem;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>E-mails
+      </button>
+    </div>
+
+    <!-- Calendrier -->
+    <div class="tab-panel feat-panel active" id="feat-tab-calendrier">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">01 — Agenda interactif</div>
+          <div class="illus-title">FullCalendar avec panneau de détail</div>
+          <div class="illus-desc"><a href="https://fullcalendar.io/" target="_blank" rel="noopener noreferrer" class="a">FullCalendar</a> est une librairie JavaScript open-source spécialisée dans l'affichage d'agendas interactifs. Elle a été intégrée dans Angular via son plugin officiel et constitue la page d'accueil du back-office CIN.<br><br>
+            Chaque activité apparaît sous forme de bloc coloré selon sa catégorie, affichant les informations essentielles : titre, animateur, horaire, jauge de places et statut "Annulée" le cas échéant. Le calendrier est filtrable par catégorie et par animateur (pratique pour qu'un animateur consulte uniquement son propre planning). Si les blocs sont nombreux, il est possible de scroller à l'intérieur du calendrier, le header restant fixe pour toujours voir les jours de la semaine.<br><br>
+            Trois vues sont disponibles : mois, semaine et liste. Un champ de navigation permet également d'accéder directement à une date précise sans multiplier les clics. Au clic sur une activité, un panneau latéral s'ouvre avec la photo, les informations pratiques et les actions disponibles selon le contexte : modifier, voir les inscrits, dupliquer, annuler...
+          </div>
+          <div class="screen-wrap">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">localhost:4200 — Vue calendrier</span></div>
+            <img src="/assets/images/calendrier_detail.png" alt="Calendrier FullCalendar avec panneau de détail" loading="lazy" />
+          </div>
+        </div>
+        <div>
+          <div style="margin-bottom: 1rem;">
+            <div class="illus-num" style="margin-bottom:.3rem;">Formulaire de modification inline</div>
+            <div class="illus-desc">Le formulaire d'activité s'ouvre dans un panneau latéral sans quitter le calendrier. Il regroupe tous les champs métier : titre, description, lieu public (affiché sur le site), lieu de rendez-vous privé (communiqué aux inscrits dans le mail de rappel J-2), dates et horaires, période d'inscription, nombre de places, catégorie et animateur.<br><br>
+              Son comportement s'adapte selon l'action déclenchée. En cliquant sur "Modifier", le panneau de détail se ferme et le formulaire s'ouvre avec tous les champs pré-remplis. "Dupliquer" fonctionne de la même façon (pratique pour créer une nouvelle activité à partir d'une existante en changeant simplement la date ou les horaires). Enfin, sélectionner une ou plusieurs cases du calendrier ouvre un formulaire vide avec les dates pré-remplies, pour une création rapide.<br><br>
+              Tous les champs sont validés avant soumission.
+            </div>
+          </div>
+          <div class="screen-wrap">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">localhost:4200 — Formulaire modification</span></div>
+            <img src="/assets/images/calendrier_modifier.png" alt="Formulaire de modification d'une activité" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activités -->
+    <div class="tab-panel feat-panel" id="feat-tab-activites">
+      <div class="illus-row" style="margin-bottom: 2rem;">
+        <div>
+          <div class="illus-num">02 — Gestion des activités</div>
+          <div class="illus-title">Table avec filtres, export et actions</div>
+          <div class="illus-desc">La page Activités affiche toutes les activités en table paginée avec recherche textuelle, filtres par catégorie et animateur, export CSV et ajout d'une nouvelle activité. Le bouton d'exportation ouvre un dialogue pour choisir d'exporter toutes les activités OU tous les inscrits, d'une date à une autre, ce qui permettra aux agents du CIN de croiser leurs données.</div>
+          <div class="screen-wrap">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">localhost:4200/activites</span></div>
+            <img src="/assets/images/activites.png" alt="Table des activités" loading="lazy" />
+          </div>
+        </div>
+        <div>
+          <div class="illus-desc" style="margin-bottom: 1.2rem;">Chaque ligne propose les actions rapides illustrées ci-dessous. Ces actions sont non-cliquables si certaines conditions sont remplies : par exemple, si une activité est passée ou annulée, il sera impossible de la modifier. Ou encore, si une activité n'est pas réservable, le bouton d'inscrits est désactivé.<br><br>
+            La suppression n'est pas toujours disponible non plus. Si une activité possède des inscrits, le bouton de suppression est remplacé par le bouton d'annulation, ce qui oblige à passer par l'annulation pour prévenir automatiquement tous les inscrits par e-mail. L'annulation présente aussi l'avantage de conserver l'activité et ses inscriptions dans le calendrier avec le statut "Annulée", permettant de les consulter ultérieurement. La suppression, elle, efface définitivement l'activité et toutes ses inscriptions.<br><br>
+            Ces actions sont identiques à celles disponibles dans le panneau de détail de l'activité sur la page d'accueil.</div>
+          <div style="padding:1.5rem; background:var(--surface); border-radius:var(--r-md); border:1px solid var(--border);">
+            <div class="tl-sprint" style="margin-bottom:.8rem;">Actions disponibles sur chaque ligne</div>
+            <div style="display:flex; flex-direction:column; gap:.7rem;">
+              <div style="display:flex; align-items:center; gap:1rem; font-size:.82rem;">
+                <span style="width:2.2rem;height:2.2rem;border-radius:10px;background:#7c3aed;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </span>
+                <span><strong>Modifier</strong> - ouvre le formulaire pré-rempli</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:1rem; font-size:.82rem;">
+                <span style="width:2.2rem;height:2.2rem;border-radius:10px;background:#16a34a;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span><strong>Voir les inscrits</strong> - ouvre la dialog des inscriptions</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:1rem; font-size:.82rem;">
+                <span style="width:2.2rem;height:2.2rem;border-radius:10px;background:#2563eb;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </span>
+                <span><strong>Dupliquer</strong> - crée une copie modifiable</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:1rem; font-size:.82rem;">
+                <span style="width:2.2rem;height:2.2rem;border-radius:10px;background:#ea580c;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+                </span>
+                <span><strong>Annuler</strong> - envoie un e-mail aux inscrits avec le motif</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:1rem; font-size:.82rem;">
+                <span style="width:2.2rem;height:2.2rem;border-radius:10px;background:#dc2626;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                </span>
+                <span><strong>Supprimer</strong> - suppression définitive</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:1rem; font-size:.82rem;">
+                <span style="width:2.2rem;height:2.2rem;border-radius:10px;background:var(--surface2);border:1px solid var(--border);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </span>
+                <span><strong>Envoyer un mail</strong> - mail libre aux inscrits</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inscriptions -->
+    <div class="tab-panel feat-panel" id="feat-tab-inscriptions">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">03 — Gestion des inscriptions</div>
+          <div class="illus-title">Dialog multi-colonnes avec FormArray</div>
+          <div class="illus-desc">La dialog d'inscription présente trois colonnes : la liste des inscriptions (avec export CSV et fiche de pointage pour les animateurs), les informations de contact, et l'ajout de participants.<br><br>
+            Les participants sont gérés dynamiquement via un <a href="https://angular.dev/api/forms/FormArray" target="_blank" rel="noopener noreferrer" class="a"><strong>FormArray</strong></a> Angular - c'est un tableau de formulaires : chaque participant ajouté génère un nouveau groupe de champs (nom, prénom, sexe, date de naissance) qui s'ajoute à la liste. Cela permet d'inscrire plusieurs participants en une seule soumission, sans limite de nombre (sauf celle imposée par la jauge de place de l'activité). Tous les champs sont validés avant soumission.</div>
+          <div class="screen-wrap">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">Dialog vide — avant toute inscription</span></div>
+            <img src="/assets/images/dialog_inscrits_vide.png" alt="Dialog inscriptions vide" loading="lazy" />
+          </div>
+        </div>
+        <div>
+          <div style="margin-bottom:1rem;">
+            <div class="illus-desc">Après ajout d'un participant et enregistrement, l'inscription apparaît dans la liste avec le statut "Confirmée" (et "Annulée" si elle est annulée ensuite). Une alerte de succès confirme l'action et un e-mail de confirmation est envoyé automatiquement à l'adresse de contact.<br><br>
+              Les confirmations d'action sont gérées via le composant <a href="https://primeng.org/toast" target="_blank" rel="noopener noreferrer" class="a"><code>p-toast</code></a> de PrimeNG : ce sont des petites notifications temporaires qui apparaissent en haut de l'écran pour confirmer une action sans interrompre le flux de travail. Elles sont utilisées partout dans l'application : à l'enregistrement d'une activité, d'une catégorie, d'un animateur, d'une inscription, ou encore lors d'une erreur serveur.
+            </div>
+          </div>
+          <div class="screen-wrap">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">Dialog avec inscription confirmée</span></div>
+            <img src="/assets/images/dialog_inscrits.png" alt="Dialog inscriptions avec données" loading="lazy" />
+          </div>
+
+          <!-- Note sur l'évolution du dialog -->
+          <div style="margin-top:1.5rem; padding:1.2rem 1.5rem; border-left:3px solid var(--b2); background:var(--surface); border-radius:0 var(--r-md) var(--r-md) 0;">
+            <div class="tl-sprint" style="color:var(--b2); margin-bottom:.5rem;">Évolution du design</div>
+            <div class="illus-desc" style="margin:0;">La première version de ce dialog affichait les inscriptions en pleine largeur avec les participants déroulables sur chaque ligne. Après retour d'Anthony, il s'est avéré peu intuitif et visuellement chargé. Le dialog a donc été repensé pour aboutir à la version actuelle en trois colonnes, plus claire et plus naturelle à utiliser malgré la complexité d'un formulaire multi-participants. Il évoluera selon les retours du CIN lors des tests utilisateurs.<br><br>
+              <span onclick="openLightbox('/assets/images/dialog_inscrits_old.png')" style="display:inline-flex; align-items:center; gap:.4rem; color:var(--b2); cursor:pointer; font-size:.8rem; border-bottom:1px solid var(--b2); padding-bottom:1px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                Voir l'ancienne version du dialog
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E-mails -->
+    <div class="tab-panel feat-panel" id="feat-tab-emails">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">04 — Système d'e-mails</div>
+          <div class="illus-title">Nodemailer : 4 types de mails automatiques</div>
+          <div class="illus-desc">Le système d'e-mails est géré côté back-end via <a href="https://www.npmjs.com/package/nodemailer" target="_blank" rel="noopener noreferrer" class="a"><strong>Nodemailer</strong></a>, une librairie Node.js qui permet d'envoyer des e-mails depuis le serveur. 4 types de mails sont implémentés : confirmation d'inscription, annulation d'inscription, annulation d'activité (avec motif), et mail libre.<br><br>
+            Depuis le panneau de détail d'une activité, l'équipe CIN peut envoyer un mail libre à tous les inscrits via un <strong>éditeur rich-text</strong> (c'est un éditeur de texte enrichi, comme Word ou Google Docs en miniature : il permet de mettre du texte en gras, en italique, d'ajouter des listes, des liens, etc., contrairement à un simple champ texte). Côté Angular, ce composant est fourni par PrimeNG (<a href="https://primeng.org/editor" target="_blank" rel="noopener noreferrer" class="a"><code>p-editor</code></a>). Un message d'avertissement indique combien d'inscriptions et de participants sont concernés avant l'envoi.
+          </div>
+          <div class="screen-wrap" style="margin-top:1rem;">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">Dialog envoi mail libre</span></div>
+            <img src="/assets/images/email_inscrits.png" alt="Dialog envoi mail libre" loading="lazy" />
+          </div>
+          <div class="screen-wrap" style="margin-top:1rem;">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">E-mail reçu — confirmation d'inscription</span></div>
+            <img src="/assets/images/mail_confirmation.png" alt="E-mail de confirmation d'inscription reçu" loading="lazy" />
+          </div>
+          <p style="font-size:.75rem; color:var(--muted2); margin-top:.6rem;">Exemple d'e-mail reçu par l'inscrit après confirmation. À terme, il sera mis en forme avec la charte graphique et le logo de Laval Agglomération.</p>
+        </div>
+        <div>
+          <div style="margin-bottom:1rem;">
+            <div class="illus-desc">En cas d'annulation d'une activité, un dialog de confirmation demande un motif optionnel avant de valider. Un e-mail d'annulation est alors envoyé automatiquement à tous les inscrits, incluant le motif si renseigné. Ce mécanisme évite les oublis de communication et décharge l'équipe CIN d'une tâche manuelle répétitive.<br><br>
+              Un quatrième type de mail (le rappel automatique J-2) est également prévu via <strong>node-cron</strong>, un planificateur de tâches Node.js. Il déclenchera automatiquement l'envoi d'un e-mail de rappel deux jours avant chaque activité, avec le lieu précis de rendez-vous. Ce mail n'est pas encore finalisé en développement par manque de temps. Il sera configuré par Anthony plus tard.</div>
+          </div>
+          <div class="screen-wrap">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">Dialog annulation avec motif</span></div>
+            <img src="/assets/images/annulation.png" alt="Dialog annulation activité" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

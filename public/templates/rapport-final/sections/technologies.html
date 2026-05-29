@@ -1,0 +1,511 @@
+<!-- 01c TECHNOLOGIES -->
+<section class="section section--alt" id="technologies">
+  <div class="label rev">01c — Technologies en détail</div>
+  <h2 class="h2 rev">Comment ça<br><span class="grad">fonctionne</span></h2>
+  <p class="rev d1" style="color:var(--muted); font-size:.88rem; line-height:1.8; margin-bottom:2rem;">Ci-dessous des extraits de code commentés pour expliquer comment les principales technologies ont été utilisées.</p>
+
+  <div class="tabs-wrap rev">
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('tech', 'primeng', this)">A — PrimeNG</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'tailwind', this)">B — Tailwind CSS</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'filtres', this)">C — Recherche & filtres</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'tables', this)">D — Tables & exports</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'fullcalendar', this)">E — FullCalendar</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'mongoose', this)">F — Mongoose & MongoDB</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'express', this)">G — Express 5 & API REST</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'signals', this)">H — Signals Angular</button>
+      <button class="tab-btn" onclick="switchTab('tech', 'multer', this)">I — Multer</button>
+    </div>
+
+    <!-- TAB A : PRIMENG -->
+    <div class="tab-panel tech-panel active" id="tech-tab-primeng">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">A — PrimeNG</div>
+          <div class="illus-title">Boutons, tooltips, états conditionnels et éditeur rich-text</div>
+          <div class="illus-desc">PrimeNG est une bibliothèque de composants Angular prêts à l'emploi. Plutôt que de coder un bouton en HTML brut, on utilise <a href="https://primeng.org/button" target="_blank" rel="noopener noreferrer" class="a"><code>&lt;p-button&gt;</code></a> qui gère automatiquement le style, les états disabled, les icônes et les animations. Le <a href="https://primeng.org/tooltip" target="_blank" rel="noopener noreferrer" class="a"><strong>tooltip</strong></a> est une petite bulle d'aide qui s'affiche au survol d'un bouton : il change dynamiquement selon pourquoi le bouton est désactivé, pour guider l'utilisateur.<br><br>
+            PrimeNG propose également <a href="https://primeng.org/editor" target="_blank" rel="noopener noreferrer" class="a"><code>p-editor</code></a>, un éditeur rich-text intégré basé sur la librairie <strong>Quill</strong>. Il est utilisé dans le dialog d'envoi de mail libre aux inscrits : l'agent CIN peut ainsi rédiger un message mis en forme (gras, italique, listes, liens...) sans avoir à écrire de HTML.</div>
+
+          <div style="margin-top:1rem;">
+            <div class="illus-num" style="margin-bottom:.5rem;">Tooltips en situation réelle</div>
+            <div class="screen-duo">
+              <div class="screen-wrap">
+                <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">Tooltip — action disponible</span></div>
+                <img src="/assets/images/tooltip_inscriptions.png" alt="Tooltip Gérer les inscriptions" loading="lazy" />
+              </div>
+              <div class="screen-wrap">
+                <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">Tooltip — action désactivée</span></div>
+                <img src="/assets/images/tooltip_passe.png" alt="Tooltip Activité passée" loading="lazy" />
+              </div>
+            </div>
+            <p style="font-size:.75rem; color:var(--muted2); margin-top:.6rem;">À gauche : tooltip sur un bouton actif. À droite : tooltip explicatif sur un bouton grisé (activité passée, modification impossible).</p>
+          </div>
+        </div>
+        <div>
+          <div class="code-block">
+            <div class="code-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="filename">inscription-form.html — p-button</span></div>
+            <pre><span class="t-cm">&lt;!-- p-button : composant PrimeNG.
+  [] = valeur dynamique (TypeScript).
+  () = événement (clic, changement...).
+
+  [disabled] : désactive si form invalide
+  OU aucun participant ajouté.
+
+  [pTooltip] : message au survol,
+  change selon la raison du blocage. --&gt;</span>
+
+<span class="t-op">&lt;</span><span class="t-pr">p-button</span>
+  label<span class="t-op">=</span><span class="t-str">"Sauvegarder l'inscription"</span>
+  icon<span class="t-op">=</span><span class="t-str">"pi pi-save"</span>
+  [loading]<span class="t-op">=</span><span class="t-str">"loading"</span>
+
+  [disabled]<span class="t-op">=</span><span class="t-str">"form.invalid
+    || participantsArray.length === 0"</span>
+
+  [pTooltip]<span class="t-op">=</span><span class="t-str">"participantsArray.length === 0
+    ? 'Ajoutez au moins un participant'
+    : form.invalid
+      ? 'Remplissez tous les champs'
+      : ''"</span>
+  tooltipPosition<span class="t-op">=</span><span class="t-str">"top"</span>
+  (click)<span class="t-op">=</span><span class="t-str">"enregistrer()"</span>
+<span class="t-op">/&gt;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB B : TAILWIND -->
+    <div class="tab-panel tech-panel" id="tech-tab-tailwind">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">B — Tailwind CSS</div>
+          <div class="illus-title">Mise en page sans écrire de CSS</div>
+          <div class="illus-desc"><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="a">Tailwind CSS</a> est un framework utilitaire : au lieu d'écrire du CSS dans un fichier séparé, on applique des classes prédéfinies directement sur les éléments HTML. <code>flex</code> active flexbox, <code>gap-2</code> ajoute un espace, <code>text-xs</code> réduit la taille. Le préfixe <code>sm:</code> applique le style uniquement sur les grands écrans, ce qui est la base du responsive (adaptation de l'interface à la taille de l'écran).</div>
+          <div style="margin-top:1rem; padding:1.5rem; background:var(--surface); border-radius:var(--r-md); border:1px solid var(--border);">
+            <div class="tl-sprint" style="margin-bottom:.8rem;">Résultat visuel</div>
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:.8rem; padding:.8rem; background:var(--bg); border-radius:8px; border:1px dashed var(--border2);">
+              <div style="display:flex; flex-wrap:wrap; gap:.5rem;">
+                <span style="padding:.3rem .8rem; border-radius:6px; background:var(--surface2); font-size:.72rem; color:var(--muted);">🔍 Rechercher...</span>
+                <span style="padding:.3rem .8rem; border-radius:6px; background:var(--surface2); font-size:.72rem; color:var(--muted);">Catégorie ▾</span>
+              </div>
+              <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+                <span style="padding:.3rem .8rem; border-radius:6px; border:1px solid var(--border2); font-size:.72rem;">↓ Exporter</span>
+                <span style="padding:.3rem .8rem; border-radius:6px; background:linear-gradient(135deg,var(--v2),var(--p2)); color:#fff; font-size:.72rem;">+ Nouvelle activité</span>
+              </div>
+            </div>
+            <p style="font-size:.7rem; color:var(--muted2); margin-top:.6rem;">Sur mobile, les éléments passent à la ligne grâce à <code>flex-wrap</code>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="code-block">
+            <div class="code-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="filename">activite-table.html — layout Tailwind</span></div>
+            <pre><span class="t-cm">&lt;!-- flex : disposition en ligne (flexbox).
+  flex-wrap : passe à la ligne si trop large.
+  justify-between : éléments aux extrémités.
+  gap-2 : espace de 8px entre éléments.
+  mb-4 : marge en bas de 16px.
+  sm:w-auto : pleine largeur sur mobile,
+  largeur auto sur grand écran. --&gt;</span>
+
+<span class="t-op">&lt;</span><span class="t-pr">div</span> class<span class="t-op">=</span><span class="t-str">"flex flex-wrap justify-between mb-4 gap-2"</span><span class="t-op">&gt;</span>
+
+  <span class="t-op">&lt;</span><span class="t-pr">div</span> class<span class="t-op">=</span><span class="t-str">"flex flex-wrap gap-2 w-full sm:w-auto"</span><span class="t-op">&gt;</span>
+    <span class="t-cm">&lt;!-- Recherche + filtres --&gt;</span>
+    <span class="t-op">&lt;</span><span class="t-pr">p-iconfield</span> class<span class="t-op">=</span><span class="t-str">"w-full sm:w-auto"</span><span class="t-op">&gt;</span>
+      ...<span class="t-op">&lt;/</span><span class="t-pr">p-iconfield</span><span class="t-op">&gt;</span>
+    <span class="t-op">&lt;</span><span class="t-pr">p-multiselect</span> class<span class="t-op">=</span><span class="t-str">"w-full sm:w-auto"</span> ...<span class="t-op">/&gt;</span>
+  <span class="t-op">&lt;/</span><span class="t-pr">div</span><span class="t-op">&gt;</span>
+
+  <span class="t-op">&lt;</span><span class="t-pr">div</span> class<span class="t-op">=</span><span class="t-str">"flex gap-2"</span><span class="t-op">&gt;</span>
+    <span class="t-cm">&lt;!-- Boutons à droite --&gt;</span>
+    <span class="t-op">&lt;</span><span class="t-pr">p-button</span> label<span class="t-op">=</span><span class="t-str">"Exporter"</span> ...<span class="t-op">/&gt;</span>
+    <span class="t-op">&lt;</span><span class="t-pr">p-button</span> label<span class="t-op">=</span><span class="t-str">"Nouvelle activité"</span> ...<span class="t-op">/&gt;</span>
+  <span class="t-op">&lt;/</span><span class="t-pr">div</span><span class="t-op">&gt;</span>
+
+<span class="t-op">&lt;/</span><span class="t-pr">div</span><span class="t-op">&gt;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB C : FILTRES -->
+    <div class="tab-panel tech-panel" id="tech-tab-filtres">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">C — Recherche & filtres PrimeNG</div>
+          <div class="illus-title">p-iconfield et p-multiselect</div>
+          <div class="illus-desc">PrimeNG propose <a href="https://primeng.org/iconfield" target="_blank" rel="noopener noreferrer" class="a"><code>p-iconfield</code></a> pour intégrer une icône dans un champ texte. Pour les filtres, <a href="https://primeng.org/multiselect" target="_blank" rel="noopener noreferrer" class="a"><code>p-multiselect</code></a> propose une liste déroulante avec cases à cocher pour sélectionner plusieurs valeurs simultanément. L'option <code>appendTo="body"</code> est importante : elle empêche la liste d'être coupée par les bords de son conteneur parent.</div>
+          <div class="screen-wrap" style="margin-top:1rem;">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">p-multiselect ouvert — filtre par catégorie</span></div>
+            <img src="/assets/images/filtre_categories.png" alt="Filtre par catégorie ouvert" loading="lazy" />
+          </div>
+          <p style="font-size:.75rem; color:var(--muted2); margin-top:.6rem;">La liste affiche les catégories avec leur couleur associée. Les cases à cocher permettent de filtrer par plusieurs catégories simultanément.</p>
+        </div>
+        <div>
+          <div class="code-block">
+            <div class="code-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="filename">activite-table.html — recherche et filtres</span></div>
+            <pre><span class="t-cm">&lt;!-- p-iconfield : champ texte + icône.
+  (input) : déclenché à chaque frappe.
+  filterGlobal() : filtre toutes les
+  colonnes de [globalFilterFields]. --&gt;</span>
+
+<span class="t-op">&lt;</span><span class="t-pr">p-iconfield</span> class<span class="t-op">=</span><span class="t-str">"w-full sm:w-auto"</span><span class="t-op">&gt;</span>
+  <span class="t-op">&lt;</span><span class="t-pr">p-inputicon</span> class<span class="t-op">=</span><span class="t-str">"pi pi-search"</span> <span class="t-op">/&gt;</span>
+  <span class="t-op">&lt;</span><span class="t-pr">input</span> pInputText
+    (input)<span class="t-op">=</span><span class="t-str">"dt.filterGlobal(
+      $event.target.value, 'contains')"</span>
+    placeholder<span class="t-op">=</span><span class="t-str">"Rechercher..."</span> <span class="t-op">/&gt;</span>
+<span class="t-op">&lt;/</span><span class="t-pr">p-iconfield</span><span class="t-op">&gt;</span>
+
+<span class="t-cm">&lt;!-- p-multiselect : liste multi-choix.
+  [options] : les choix disponibles.
+  [(ngModel)] : liaison avec la variable TS.
+  appendTo="body" : liste ouverte hors
+  du conteneur, jamais coupée. --&gt;</span>
+
+<span class="t-op">&lt;</span><span class="t-pr">p-multiselect</span>
+  [options]<span class="t-op">=</span><span class="t-str">"categories"</span>
+  optionLabel<span class="t-op">=</span><span class="t-str">"nom"</span>
+  optionValue<span class="t-op">=</span><span class="t-str">"nom"</span>
+  placeholder<span class="t-op">=</span><span class="t-str">"Filtrer par catégorie"</span>
+  [(ngModel)]<span class="t-op">=</span><span class="t-str">"filtreCategories"</span>
+  (onChange)<span class="t-op">=</span><span class="t-str">"appliquerFiltres()"</span>
+  [showClear]<span class="t-op">=</span><span class="t-str">"true"</span>
+  appendTo<span class="t-op">=</span><span class="t-str">"body"</span>
+<span class="t-op">/&gt;</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB D : TABLES + EXPORT -->
+    <div class="tab-panel tech-panel" id="tech-tab-tables">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">D — Tables PrimeNG, export CSV & fiche de pointage PDF</div>
+          <div class="illus-title">p-table, Blob API et jsPDF</div>
+          <div class="illus-desc">La table PrimeNG (<a href="https://primeng.org/table" target="_blank" rel="noopener noreferrer" class="a"><code>p-table</code></a>) gère automatiquement le tri par colonne, la pagination et la recherche globale.<br><br>
+            L'export CSV des activités et des inscrits est généré côté front-end sans librairie externe : on construit le contenu texte ligne par ligne, puis on utilise l'API native du navigateur (<code>Blob</code> + <code>URL.createObjectURL</code>) pour créer un fichier téléchargeable à la volée.<br><br>
+            La <strong>fiche de pointage</strong> est un PDF généré avec <a href="https://github.com/parallax/jsPDF" target="_blank" rel="noopener noreferrer" class="a"><strong>jsPDF</strong></a> et son plugin <strong>jsPDF-AutoTable</strong>. Elle inclut le logo CIN, les informations de l'activité, un tableau des participants avec cases à cocher, et un récapitulatif adultes/enfants en bas de page. Initialement, PDFKit avait été envisagé pour cette tâche. Cette librairie fonctionne côté serveur : elle aurait nécessité d'envoyer toutes les données au back-end pour générer le PDF, puis de le renvoyer au navigateur. jsPDF génère le PDF directement dans le navigateur à partir des données déjà disponibles, sans aller-retour inutile avec le serveur.</div>
+          <div class="screen-wrap" style="margin-top:1rem;">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">localhost:4200/activites — table paginée</span></div>
+            <img src="/assets/images/activites.png" alt="Table des activités PrimeNG" loading="lazy" />
+          </div>
+        </div>
+        <div>
+          <div class="code-block">
+            <div class="code-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="filename">export.service.ts — genererCSV() + genererFichePointage()</span></div>
+            <pre><span class="t-cm">// Export CSV : API native du navigateur.
+// Pas de librairie externe — on crée
+// un fichier texte formaté puis on
+// déclenche son téléchargement.</span>
+
+<span class="t-fn">genererCSV</span><span class="t-op">(</span>entetes<span class="t-op">,</span> lignes<span class="t-op">,</span> nom<span class="t-op">) {</span>
+  <span class="t-kw">const</span> contenu <span class="t-op">= [</span>entetes<span class="t-op">,</span> <span class="t-op">...</span>lignes<span class="t-op">]</span>
+    <span class="t-op">.</span><span class="t-fn">map</span><span class="t-op">(</span>l <span class="t-op">=></span> l<span class="t-op">.</span><span class="t-fn">join</span><span class="t-op">(</span><span class="t-str">';'</span><span class="t-op">))</span>
+    <span class="t-op">.</span><span class="t-fn">join</span><span class="t-op">(</span><span class="t-str">'\n'</span><span class="t-op">)</span>
+
+  <span class="t-cm">// Blob = fichier en mémoire</span>
+  <span class="t-kw">const</span> blob <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">Blob</span><span class="t-op">([</span>contenu<span class="t-op">],</span>
+    <span class="t-op">{</span> <span class="t-pr">type</span><span class="t-op">:</span> <span class="t-str">'text/csv;charset=utf-8;'</span> <span class="t-op">})</span>
+  <span class="t-kw">const</span> url <span class="t-op">=</span> URL<span class="t-op">.</span><span class="t-fn">createObjectURL</span><span class="t-op">(</span>blob<span class="t-op">)</span>
+
+  <span class="t-cm">// Lien invisible → clic → téléchargement</span>
+  <span class="t-kw">const</span> a <span class="t-op">=</span> document<span class="t-op">.</span><span class="t-fn">createElement</span><span class="t-op">(</span><span class="t-str">'a'</span><span class="t-op">)</span>
+  a<span class="t-op">.</span>href <span class="t-op">=</span> url
+  a<span class="t-op">.</span>download <span class="t-op">=</span> <span class="t-str">`${nom}.csv`</span>
+  a<span class="t-op">.</span><span class="t-fn">click</span><span class="t-op">()</span>
+  URL<span class="t-op">.</span><span class="t-fn">revokeObjectURL</span><span class="t-op">(</span>url<span class="t-op">)</span>
+<span class="t-op">}</span>
+
+<span class="t-cm">// Fiche de pointage : jsPDF + AutoTable.
+// Génère un vrai PDF avec tableau,
+// logo et cases à cocher.</span>
+
+<span class="t-fn">genererFichePointage</span><span class="t-op">(</span>activite<span class="t-op">) {</span>
+  <span class="t-kw">const</span> doc <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">jsPDF</span><span class="t-op">()</span>
+  doc<span class="t-op">.</span><span class="t-fn">addImage</span><span class="t-op">(</span>LOGO_CIN<span class="t-op">,</span> <span class="t-str">'PNG'</span><span class="t-op">,</span> <span class="t-num">14</span><span class="t-op">,</span> <span class="t-num">10</span><span class="t-op">,</span> <span class="t-num">50</span><span class="t-op">,</span> <span class="t-num">18</span><span class="t-op">)</span>
+  <span class="t-fn">autoTable</span><span class="t-op">(</span>doc<span class="t-op">, {</span>
+    <span class="t-pr">head</span><span class="t-op">: [[</span><span class="t-str">'#'</span><span class="t-op">,</span> <span class="t-str">'NOM'</span><span class="t-op">,</span> <span class="t-str">'PRÉNOM'</span><span class="t-op">,</span> <span class="t-str">'ÂGE'</span><span class="t-op">,</span> <span class="t-str">''</span><span class="t-op">]],</span>
+    <span class="t-pr">body</span><span class="t-op">:</span> participants<span class="t-op">.</span><span class="t-fn">map</span><span class="t-op">((</span>p<span class="t-op">,</span> i<span class="t-op">) =></span>
+      <span class="t-op">[</span>i<span class="t-op">+</span><span class="t-num">1</span><span class="t-op">,</span> p<span class="t-op">.</span>nom<span class="t-op">,</span> p<span class="t-op">.</span>prenom<span class="t-op">,</span> age<span class="t-op">,</span> <span class="t-str">''</span><span class="t-op">]),</span>
+    <span class="t-cm">// La dernière colonne affiche</span>
+    <span class="t-cm">// une case à cocher dessinée en PDF</span>
+  <span class="t-op">})</span>
+  doc<span class="t-op">.</span><span class="t-fn">save</span><span class="t-op">(</span><span class="t-str">`Fiche_${activite.titre}.pdf`</span><span class="t-op">)</span>
+<span class="t-op">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB E : FULLCALENDAR -->
+    <div class="tab-panel tech-panel" id="tech-tab-fullcalendar">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">E — FullCalendar</div>
+          <div class="illus-title">Configuration de l'agenda interactif</div>
+          <div class="illus-desc"><a href="https://fullcalendar.io/" target="_blank" rel="noopener noreferrer" class="a">FullCalendar</a> est une librairie spécialisée dans l'affichage d'agendas. On lui passe un objet <code>calendarOptions</code> qui définit tout : les plugins activés (mois, semaine, liste, interaction), la langue française, les vues disponibles, et les fonctions à appeler lors d'un clic ou d'un drag & drop.<br><br>
+            Chaque activité est représentée par un <strong>événement</strong> (un objet JavaScript contenant un identifiant, un titre, une date et des <strong>propriétés étendues</strong> <code>extendedProps</code>) pour les données métier comme l'animateur, le nombre de places ou le statut.</div>
+          <div class="screen-wrap" style="margin-top:1rem;">
+            <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">localhost:4200 — Calendrier FullCalendar</span></div>
+            <img src="/assets/images/calendrier_detail.png" alt="Calendrier FullCalendar" loading="lazy" />
+          </div>
+        </div>
+        <div>
+          <div class="code-block">
+            <div class="code-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="filename">calendar.ts — configuration FullCalendar</span></div>
+            <pre><span class="t-cm">// calendarOptions : tout le comportement
+// du calendrier est défini ici.</span>
+
+calendarOptions<span class="t-op">: CalendarOptions = {</span>
+
+  <span class="t-cm">// Plugins = fonctionnalités activées</span>
+  plugins<span class="t-op">: [</span>dayGridPlugin<span class="t-op">,</span> timeGridPlugin<span class="t-op">,</span>
+    interactionPlugin<span class="t-op">,</span> listPlugin<span class="t-op">],</span>
+
+  locale<span class="t-op">:</span>      frLocale<span class="t-op">,</span>
+  initialView<span class="t-op">:</span> <span class="t-str">'dayGridMonth'</span><span class="t-op">,</span>
+
+  headerToolbar<span class="t-op">: {</span>
+    left<span class="t-op">:</span>   <span class="t-str">'prev,next today'</span><span class="t-op">,</span>
+    center<span class="t-op">:</span> <span class="t-str">'title'</span><span class="t-op">,</span>
+    right<span class="t-op">:</span>  <span class="t-str">'dayGridMonth,timeGridWeek,listWeek'</span>
+  <span class="t-op">},</span>
+
+  editable<span class="t-op">:</span>     <span class="t-kw">true</span><span class="t-op">,</span> <span class="t-cm">// active le drag & drop</span>
+  dayMaxEvents<span class="t-op">:</span> <span class="t-num">2</span><span class="t-op">,</span>    <span class="t-cm">// max 2 par case</span>
+
+  <span class="t-cm">// Clic → ouvre le panneau de détail</span>
+  eventClick<span class="t-op">: (</span>arg<span class="t-op">) => {</span>
+    <span class="t-kw">const</span> activite <span class="t-op">=</span> <span class="t-kw">this</span><span class="t-op">.</span>activites
+      <span class="t-op">.</span><span class="t-fn">find</span><span class="t-op">(</span>a <span class="t-op">=></span> a<span class="t-op">.</span>_id <span class="t-op">===</span> arg<span class="t-op">.</span>event<span class="t-op">.</span>id<span class="t-op">)</span>
+    <span class="t-kw">if</span> <span class="t-op">(</span>activite<span class="t-op">)</span>
+      <span class="t-kw">this</span><span class="t-op">.</span>detailService<span class="t-op">.</span><span class="t-fn">ouvrir</span><span class="t-op">(</span>activite<span class="t-op">)</span>
+  <span class="t-op">},</span>
+
+  <span class="t-cm">// Drag & drop → mise à jour en BDD</span>
+  eventDrop<span class="t-op">: (</span>arg<span class="t-op">) => {</span>
+    <span class="t-kw">this</span><span class="t-op">.</span>activiteService<span class="t-op">.</span><span class="t-fn">update</span><span class="t-op">(</span>
+      arg<span class="t-op">.</span>event<span class="t-op">.</span>id<span class="t-op">,</span>
+      <span class="t-op">{</span> date_debut<span class="t-op">:</span> arg<span class="t-op">.</span>event<span class="t-op">.</span>start <span class="t-op">}</span>
+    <span class="t-op">)</span>
+  <span class="t-op">}</span>
+<span class="t-op">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB F : MONGOOSE -->
+    <div class="tab-panel tech-panel" id="tech-tab-mongoose">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">F — Mongoose & MongoDB</div>
+          <div class="illus-title">Modélisation NoSQL et dénormalisation</div>
+          <div class="illus-desc"><a href="https://mongoosejs.com/" target="_blank" rel="noopener noreferrer" class="a">Mongoose</a> est une librairie Node.js qui permet de définir des <strong>schémas</strong> pour MongoDB (une base de données NoSQL qui stocke les données sous forme de documents JSON plutôt que de tables comme en SQL).<br><br>
+            Un choix architectural important a été fait : la <strong>dénormalisation</strong>. Au lieu de stocker uniquement l'identifiant de la catégorie et de l'animateur dans chaque activité (comme on le ferait en SQL avec une clé étrangère), on embarque directement leurs données (nom, couleur...) dans le document de l'activité. Cela évite des requêtes supplémentaires pour récupérer ces informations et accélère l'affichage du calendrier. En contrepartie, si le nom d'une catégorie change, il faut mettre à jour toutes les activités qui la référencent, un compromis justifié ici par la stabilité des données.</div>
+          <div class="screen-duo" style="margin-top:1rem;">
+            <div class="screen-wrap">
+              <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">MongoDB Compass — collections</span></div>
+              <img src="/assets/images/mongodb_collections.png" alt="Collections MongoDB Compass" loading="lazy" />
+            </div>
+            <div class="screen-wrap">
+              <div class="screen-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="url">MongoDB Compass — documents activites</span></div>
+              <img src="/assets/images/mongodb_documents.png" alt="Documents de la collection activites" loading="lazy" />
+            </div>
+          </div>
+          <p style="font-size:.75rem; color:var(--muted2); margin-top:.6rem;">MongoDB Compass est l'interface graphique officielle pour visualiser et explorer les données MongoDB. On y voit les 4 collections du projet et le détail d'un document activité avec tous ses champs.</p>
+        </div>
+        <div>
+          <div class="code-block">
+            <div class="code-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="filename">activite.model.js — schéma Mongoose</span></div>
+            <pre><span class="t-cm">// Schema : définit la structure des
+// documents dans la collection MongoDB.
+// required: true = champ obligatoire.</span>
+
+<span class="t-kw">const</span> <span class="t-pr">ActiviteSchema</span> <span class="t-op">=</span> <span class="t-kw">new</span> <span class="t-fn">Schema</span><span class="t-op">({</span>
+  <span class="t-pr">titre</span><span class="t-op">:</span>       <span class="t-op">{</span> <span class="t-pr">type</span><span class="t-op">:</span> String<span class="t-op">,</span> <span class="t-pr">required</span><span class="t-op">:</span> <span class="t-kw">true</span> <span class="t-op">},</span>
+  <span class="t-pr">date_debut</span><span class="t-op">:</span> <span class="t-op">{</span> <span class="t-pr">type</span><span class="t-op">:</span> Date<span class="t-op">,</span>   <span class="t-pr">required</span><span class="t-op">:</span> <span class="t-kw">true</span> <span class="t-op">},</span>
+  <span class="t-pr">statut</span><span class="t-op">:</span> <span class="t-op">{</span>
+    <span class="t-pr">type</span><span class="t-op">:</span>    String<span class="t-op">,</span>
+    <span class="t-pr">enum</span><span class="t-op">:</span>    <span class="t-op">[</span><span class="t-str">'publiee'</span><span class="t-op">,</span> <span class="t-str">'annulee'</span><span class="t-op">],</span>
+    <span class="t-pr">default</span><span class="t-op">:</span> <span class="t-str">'publiee'</span>
+  <span class="t-op">},</span>
+
+  <span class="t-cm">// Dénormalisation : on embarque les
+  // données de catégorie et animateur
+  // directement dans l'activité.
+  // Pas besoin de jointure → plus rapide.</span>
+
+  <span class="t-pr">categorie</span><span class="t-op">:</span> <span class="t-op">{</span>
+    <span class="t-pr">_id</span><span class="t-op">:</span>     ObjectId<span class="t-op">,</span>
+    <span class="t-pr">nom</span><span class="t-op">:</span>     String<span class="t-op">,</span>
+    <span class="t-pr">couleur</span><span class="t-op">:</span> String   <span class="t-cm">// utilisée pour colorier</span>
+  <span class="t-op">},</span>               <span class="t-cm">// les blocs du calendrier</span>
+
+  <span class="t-pr">animateur</span><span class="t-op">:</span> <span class="t-op">{</span>
+    <span class="t-pr">_id</span><span class="t-op">:</span>    ObjectId<span class="t-op">,</span>
+    <span class="t-pr">nom</span><span class="t-op">:</span>    String<span class="t-op">,</span>
+    <span class="t-pr">prenom</span><span class="t-op">:</span> String
+  <span class="t-op">}</span>
+<span class="t-op">})</span>
+
+<span class="t-cm">// Model : interface pour interroger
+// la collection "activites" en BDD.</span>
+<span class="t-kw">export default</span> mongoose<span class="t-op">.</span><span class="t-fn">model</span><span class="t-op">(</span>
+  <span class="t-str">'Activite'</span><span class="t-op">,</span> ActiviteSchema
+<span class="t-op">)</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB G : EXPRESS -->
+    <div class="tab-panel tech-panel" id="tech-tab-express">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">G — Express 5 & API REST</div>
+          <div class="illus-title">Routes, controllers et middlewares</div>
+          <div class="illus-desc"><a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer" class="a">Express</a> est le framework back-end Node.js utilisé pour construire l'API REST. Une <strong>API REST</strong> est une interface qui expose des points d'accès (des <strong>routes</strong>) que le front-end Angular appelle via HTTP pour lire, créer, modifier ou supprimer des données, sans jamais accéder directement à la base de données.<br><br>
+            Le projet utilise <strong>Express 5</strong>, la dernière version majeure, qui apporte notamment la gestion native des erreurs asynchrones. Parmi les <strong>middlewares</strong> configurés (des fonctions qui s'exécutent entre la réception d'une requête et l'envoi de la réponse) figure le <strong>rate limiting</strong> : un mécanisme qui limite le nombre de requêtes autorisées sur une période donnée pour protéger le serveur contre les abus et les attaques automatisées. La limite a d'ailleurs dû être augmentée en cours de développement, car certaines pages qui chargent beaucoup de données simultanément dépassaient rapidement le seuil initial.<br><br>
+            Le package <code>express-mongo-sanitize</code> avait initialement été prévu pour nettoyer automatiquement les données reçues et éviter les injections malveillantes dans MongoDB. Il a dû être retiré car incompatible avec Express 5 : les validations ont donc été intégrées directement dans les schémas Mongoose.</div>
+        </div>
+        <div>
+          <div class="code-block">
+            <div class="code-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="filename">activiteRoutes.js + activiteController.js</span></div>
+            <pre><span class="t-cm">// Routes : définissent les URLs de l'API
+// et la méthode HTTP (GET, POST, PUT...).
+// Chaque route appelle une fonction
+// du controller correspondant.</span>
+
+router<span class="t-op">.</span><span class="t-fn">get</span><span class="t-op">(</span><span class="t-str">'/'</span><span class="t-op">,</span>          getAll<span class="t-op">)</span>
+router<span class="t-op">.</span><span class="t-fn">get</span><span class="t-op">(</span><span class="t-str">'/:id'</span><span class="t-op">,</span>      getById<span class="t-op">)</span>
+router<span class="t-op">.</span><span class="t-fn">post</span><span class="t-op">(</span><span class="t-str">'/'</span><span class="t-op">,</span>         create<span class="t-op">)</span>
+router<span class="t-op">.</span><span class="t-fn">put</span><span class="t-op">(</span><span class="t-str">'/:id'</span><span class="t-op">,</span>      update<span class="t-op">)</span>
+router<span class="t-op">.</span><span class="t-fn">delete</span><span class="t-op">(</span><span class="t-str">'/:id'</span><span class="t-op">,</span>   remove<span class="t-op">)</span>
+router<span class="t-op">.</span><span class="t-fn">patch</span><span class="t-op">(</span><span class="t-str">'/:id/cancel'</span><span class="t-op">,</span> cancel<span class="t-op">)</span>
+
+<span class="t-cm">// Controller : contient la logique métier.
+// Reçoit la requête, interroge la BDD
+// via Mongoose, renvoie la réponse JSON.</span>
+
+<span class="t-kw">export const</span> <span class="t-fn">getAll</span> <span class="t-op">=</span> <span class="t-kw">async</span> <span class="t-op">(</span>req<span class="t-op">,</span> res<span class="t-op">) => {</span>
+  <span class="t-kw">const</span> activites <span class="t-op">=</span>
+    <span class="t-kw">await</span> Activite<span class="t-op">.</span><span class="t-fn">find</span><span class="t-op">({})</span>
+                  <span class="t-op">.</span><span class="t-fn">sort</span><span class="t-op">({</span> <span class="t-pr">date_debut</span><span class="t-op">: -</span><span class="t-num">1</span> <span class="t-op">})</span>
+  res<span class="t-op">.</span><span class="t-fn">json</span><span class="t-op">(</span>activites<span class="t-op">)</span>
+<span class="t-op">}</span>
+
+<span class="t-cm">// Middlewares au démarrage (server.js)</span>
+app<span class="t-op">.</span><span class="t-fn">use</span><span class="t-op">(</span><span class="t-fn">cors</span><span class="t-op">({</span> <span class="t-pr">origin</span><span class="t-op">:</span> <span class="t-str">'http://localhost:4200'</span> <span class="t-op">}))</span>
+app<span class="t-op">.</span><span class="t-fn">use</span><span class="t-op">(</span><span class="t-fn">rateLimit</span><span class="t-op">({</span>    <span class="t-cm">// anti-abus</span>
+  <span class="t-pr">windowMs</span><span class="t-op">:</span> <span class="t-num">15</span> <span class="t-op">*</span> <span class="t-num">60</span> <span class="t-op">*</span> <span class="t-num">1000</span><span class="t-op">,</span>
+  <span class="t-pr">max</span><span class="t-op">:</span> <span class="t-num">300</span>
+<span class="t-op">}))</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB H : SIGNALS -->
+    <div class="tab-panel tech-panel" id="tech-tab-signals">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">H — Signals Angular</div>
+          <div class="illus-title">Communication réactive entre composants</div>
+          <div class="illus-desc">Les <a href="https://angular.dev/guide/signals" target="_blank" rel="noopener noreferrer" class="a"><strong>Signals</strong></a> sont un mécanisme introduit dans Angular 16 pour gérer l'état réactif de manière simple et performante. Un signal est une valeur observable : quand elle change, tous les composants qui la "lisent" se mettent à jour automatiquement, sans avoir besoin de passer des données manuellement de composant en composant.<br><br>
+            Dans le projet, le service partagé <code>ActiviteFormService</code> utilise des signals pour coordonner le calendrier, la table des activités et le formulaire. Par exemple, quand une activité est créée ou modifiée, le signal <code>activiteModifiee</code> est incrémenté, ce qui déclenche automatiquement le rechargement du calendrier et de la table, sans aucune communication directe entre ces composants.</div>
+        </div>
+        <div>
+          <div class="code-block">
+            <div class="code-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="filename">activite-form.service.ts — Signals</span></div>
+            <pre><span class="t-cm">// signal() : crée une valeur réactive.
+// Quand elle change, Angular met à jour
+// automatiquement tous les composants
+// qui la lisent.</span>
+
+<span class="t-op">@</span><span class="t-fn">Injectable</span><span class="t-op">({</span> <span class="t-pr">providedIn</span><span class="t-op">:</span> <span class="t-str">'root'</span> <span class="t-op">})</span>
+<span class="t-kw">export class</span> <span class="t-fn">ActiviteFormService</span> <span class="t-op">{</span>
+
+  <span class="t-cm">// Signal booléen : le formulaire
+  // est-il visible ?</span>
+  <span class="t-pr">dialogVisible</span> <span class="t-op">=</span> <span class="t-fn">signal</span><span class="t-op">(</span><span class="t-kw">false</span><span class="t-op">)</span>
+
+  <span class="t-cm">// Compteur : s'incrémente à chaque
+  // modification → déclenche un rechargement
+  // dans tous les composants abonnés.</span>
+  <span class="t-pr">activiteModifiee</span> <span class="t-op">=</span> <span class="t-fn">signal</span><span class="t-op">(</span><span class="t-num">0</span><span class="t-op">)</span>
+
+  <span class="t-fn">notifierModification</span><span class="t-op">() {</span>
+    <span class="t-kw">this</span><span class="t-op">.</span>activiteModifiee<span class="t-op">.</span><span class="t-fn">update</span><span class="t-op">(</span>n <span class="t-op">=></span> n <span class="t-op">+</span> <span class="t-num">1</span><span class="t-op">)</span>
+  <span class="t-op">}</span>
+<span class="t-op">}</span>
+
+<span class="t-cm">// Dans calendar.ts : on écoute le signal
+// avec effect() → rechargement auto.</span>
+
+<span class="t-fn">effect</span><span class="t-op">(() => {</span>
+  <span class="t-kw">this</span><span class="t-op">.</span>formService<span class="t-op">.</span><span class="t-fn">activiteModifiee</span><span class="t-op">()</span>
+  <span class="t-kw">this</span><span class="t-op">.</span><span class="t-fn">chargerActivites</span><span class="t-op">()</span>
+<span class="t-op">})</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB I : MULTER -->
+    <div class="tab-panel tech-panel" id="tech-tab-multer">
+      <div class="illus-row">
+        <div>
+          <div class="illus-num">I — Multer</div>
+          <div class="illus-title">Upload et validation des photos d'activités</div>
+          <div class="illus-desc"><a href="https://github.com/expressjs/multer" target="_blank" rel="noopener noreferrer" class="a">Multer</a> est un middleware Express dédié à la gestion des uploads de fichiers. Dans le back-office CIN, il est utilisé pour permettre aux agents de joindre une photo à chaque activité.<br><br>
+            Multer prend en charge trois responsabilités : définir <strong>où stocker</strong> le fichier (dans le dossier <code>uploads/activites/</code> avec un nom unique basé sur un timestamp), <strong>filtrer les formats</strong> acceptés (uniquement JPEG, PNG et WebP), et <strong>limiter la taille</strong> maximale (2 Mo par fichier). Ces vérifications sont faites côté serveur, indépendamment du front-end, ce qui garantit qu'aucun fichier non conforme ne peut être enregistré.</div>
+        </div>
+        <div>
+          <div class="code-block">
+            <div class="code-bar"><span class="screen-dot" style="background:#ff5f57;"></span><span class="screen-dot" style="background:#ffbd2e;"></span><span class="screen-dot" style="background:#28c840;"></span><span class="filename">upload.middleware.js — configuration Multer</span></div>
+            <pre><span class="t-kw">import</span> multer <span class="t-kw">from</span> <span class="t-str">'multer'</span>
+
+<span class="t-cm">// Où stocker le fichier et sous quel nom.</span>
+<span class="t-kw">const</span> storage <span class="t-op">=</span> multer<span class="t-op">.</span><span class="t-fn">diskStorage</span><span class="t-op">({</span>
+  <span class="t-pr">destination</span><span class="t-op">: (</span>req<span class="t-op">,</span> file<span class="t-op">,</span> cb<span class="t-op">) =></span>
+    <span class="t-fn">cb</span><span class="t-op">(</span><span class="t-kw">null</span><span class="t-op">,</span> <span class="t-str">'./uploads/activites'</span><span class="t-op">),</span>
+
+  <span class="t-pr">filename</span><span class="t-op">: (</span>req<span class="t-op">,</span> file<span class="t-op">,</span> cb<span class="t-op">) => {</span>
+    <span class="t-cm">// Nom unique : activite-[timestamp].ext
+    // Évite les collisions de noms.</span>
+    <span class="t-kw">const</span> ext <span class="t-op">=</span> path<span class="t-op">.</span><span class="t-fn">extname</span><span class="t-op">(</span>file<span class="t-op">.</span>originalname<span class="t-op">)</span>
+    <span class="t-fn">cb</span><span class="t-op">(</span><span class="t-kw">null</span><span class="t-op">,</span> <span class="t-str">`activite-${Date.now()}${ext}`</span><span class="t-op">)</span>
+  <span class="t-op">}</span>
+<span class="t-op">})</span>
+
+<span class="t-cm">// Filtrer les formats acceptés.</span>
+<span class="t-kw">const</span> fileFilter <span class="t-op">= (</span>req<span class="t-op">,</span> file<span class="t-op">,</span> cb<span class="t-op">) => {</span>
+  <span class="t-kw">const</span> allowed <span class="t-op">= [</span>
+    <span class="t-str">'image/jpeg'</span><span class="t-op">,</span>
+    <span class="t-str">'image/png'</span><span class="t-op">,</span>
+    <span class="t-str">'image/webp'</span>
+  <span class="t-op">]</span>
+  allowed<span class="t-op">.</span><span class="t-fn">includes</span><span class="t-op">(</span>file<span class="t-op">.</span>mimetype<span class="t-op">)</span>
+    <span class="t-op">?</span> <span class="t-fn">cb</span><span class="t-op">(</span><span class="t-kw">null</span><span class="t-op">,</span> <span class="t-kw">true</span><span class="t-op">)</span>
+    <span class="t-op">:</span> <span class="t-fn">cb</span><span class="t-op">(</span><span class="t-kw">new</span> <span class="t-fn">Error</span><span class="t-op">(</span><span class="t-str">'Format non supporté'</span><span class="t-op">))</span>
+<span class="t-op">}</span>
+
+<span class="t-kw">export const</span> upload <span class="t-op">=</span> <span class="t-fn">multer</span><span class="t-op">({</span>
+  storage<span class="t-op">,</span>
+  fileFilter<span class="t-op">,</span>
+  <span class="t-pr">limits</span><span class="t-op">: {</span>
+    <span class="t-cm">// 2 Mo maximum par fichier</span>
+    <span class="t-pr">fileSize</span><span class="t-op">:</span> <span class="t-num">2</span> <span class="t-op">*</span> <span class="t-num">1024</span> <span class="t-op">*</span> <span class="t-num">1024</span>
+  <span class="t-op">}</span>
+<span class="t-op">})</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

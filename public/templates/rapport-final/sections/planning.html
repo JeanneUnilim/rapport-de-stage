@@ -1,0 +1,71 @@
+<!-- 02 PLANNING -->
+<section class="section section--alt2" id="planning">
+  <div class="label rev">02 — Planning du travail réalisé</div>
+  <h2 class="h2 rev">9 semaines de<br><span class="grad">développement</span></h2>
+  <p class="rev d1" style="color:var(--muted); font-size:.88rem; line-height:1.8; margin-top:1.5rem;">Le développement a été organisé de manière itérative : plutôt que de tout planifier dans le détail dès le départ, les fonctionnalités ont été développées semaine par semaine, en ajustant les priorités au fil des retours d'Anthony. Cette approche, inspirée des méthodes agiles, permet de livrer des fonctionnalités opérationnelles à chaque étape plutôt qu'un produit fini seulement à la fin.</p>
+ 
+  <div class="planning-cols">
+ 
+    <!-- Colonne gauche -->
+    <div class="timeline rev d1">
+ 
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-sprint">Semaine 1 · 24–28 mars</div>
+        <div class="tl-title">Prise de poste & cahier des charges</div>
+        <div class="tl-desc">Découverte de l'environnement de travail au sein du service Data et urbanisation des Systèmes d'Information. Prise en main de la stack technique (Angular, PrimeNG, Node.js, TypeScript), de GitLab pour la gestion de versions, et du socle existant fourni par Anthony, notamment la connexion SSO Keycloak (SSO pour <em>Single Sign-On</em>, un système permettant de s'authentifier une seule fois pour accéder à plusieurs applications ; Keycloak est l'outil open-source qui le gère) et la structure de base du serveur, déjà en place.<br><br>
+        Rédaction du cahier des charges en 5 versions successives (v1.0 à v1.4), avec une réunion de validation avec l'animatrice du CIN Murielle Kreutzer qui a permis d'intégrer des besoins non identifiés initialement, comme la notification automatique aux inscrits en cas d'annulation d'activité avec motif.</div>
+      </div>
+ 
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-sprint">Semaines 2–3 · 31 mars–11 avril</div>
+        <div class="tl-title">Socle back-end & paramétrage</div>
+        <div class="tl-desc">Mise en place de l'API REST côté back-end : connexion à MongoDB via Mongoose, création des modèles et contrôleurs pour les 4 entités (Activité, Inscription, Catégorie, Animateur), configuration du rate limiting. Le package <code>express-mongo-sanitize</code> a dû être retiré car incompatible avec Express 5, les validations ont donc été reportées directement dans les schémas Mongoose.<br><br>
+        Côté front-end, création des interfaces TypeScript, des services HTTP Angular, et des pages de liste et formulaires pour les catégories et animateurs, avec validations en temps réel sur chaque champ.</div>
+      </div>
+ 
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-sprint">Semaines 4–5 · 14–25 avril</div>
+        <div class="tl-title">Gestion des activités & calendrier</div>
+        <div class="tl-desc">Intégration de FullCalendar avec ses quatre plugins (vue mois, semaine, liste, interaction). Le formulaire d'activité couvre l'ensemble des champs métier avec validations croisées sur les dates. Mise en place du drag & drop, de la duplication, et de l'annulation avec e-mail automatique aux inscrits.<br><br>
+        Côté architecture, création du service partagé <code>ActiviteFormService</code> basé sur les signals Angular, qui permet au calendrier et à la table des activités de se synchroniser automatiquement.</div>
+      </div>
+ 
+    </div>
+ 
+    <!-- Colonne droite -->
+    <div style="display:flex; flex-direction:column; gap:0;">
+      <div class="timeline rev d2">
+ 
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-sprint">Semaines 6–7 · 28 avril–9 mai</div>
+          <div class="tl-title">Gestion des inscriptions</div>
+          <div class="tl-desc">Développement de la dialog d'inscription multi-colonnes avec FormArray Angular. Gestion des contextes métier : places restantes en temps réel, activité complète, fermée ou annulée.<br><br>
+          La dialog a été entièrement repensée en cours de développement suite à un retour d'Anthony : la première version en liste dépliable était peu intuitive et visuellement chargée, et elle a été remplacée par une mise en page en trois colonnes plus claire. Export des inscrits en CSV et génération d'une fiche de pointage PDF via jsPDF.</div>
+        </div>
+ 
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-sprint">Semaines 8–9 · 12–22 mai</div>
+          <div class="tl-title">Finitions, mails & responsive</div>
+          <div class="tl-desc">Mise en place du système d'e-mails complet via Nodemailer : confirmation d'inscription, annulation d'activité avec motif, et mail libre aux inscrits via un éditeur rich-text. Préparation du rappel automatique J-2 via node-cron, pas encore implémenté.<br><br>
+          Côté interface : ajout du logo CIN, menu burger mobile, version automatique depuis un fichier <code>VERSION</code>, adaptation responsive et corrections CSS/UX générales. Nettoyage du code avant remise.</div>
+        </div>
+ 
+      </div>
+ 
+      <div class="rev d2" style="padding:1.5rem 1.8rem; border-left:3px solid var(--p1); background:var(--surface); border-radius:0 var(--r-md) var(--r-md) 0;">
+        <div class="tl-sprint" style="margin-bottom:.4rem;">Éléments hors périmètre du stage</div>
+        <div class="tl-desc" style="padding-bottom:0; border:none;">Configuration Keycloak SSO en production (dépend de l'équipe IT de Laval Agglomération), tests unitaires, mise en production, et front-office public destiné aux citoyens. Ces points constituent la feuille de route pour la suite du projet, qui sera repris par Anthony.</div>
+      </div>
+      <div class="rev" style="margin-top:1rem; padding:1.5rem 1.8rem; border-left:3px solid var(--b2); background:var(--surface); border-radius:0 var(--r-md) var(--r-md) 0;">
+        <div class="tl-sprint" style="margin-bottom:.4rem;">Pistes d'amélioration identifiées</div>
+        <div class="tl-desc" style="padding-bottom:0; border:none;">Parmi les évolutions envisagées en cours de développement : l'intégration d'un lien Google Maps automatique dans le lieu de rendez-vous privé communiqué aux inscrits par e-mail, une charte graphique et un logo dans les e-mails automatiques pour les rendre plus professionnels et cohérents avec l'identité visuelle de Laval Agglomération, et des améliorations CSS/UX au fil des retours du CIN lors des tests utilisateurs.</div>
+      </div>
+    </div>
+ 
+  </div>
+</section>

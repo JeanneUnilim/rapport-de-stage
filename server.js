@@ -29,12 +29,25 @@ const ROUTES = {
   '/mentions-legales' : '/templates/mentions-legales/index.html',
 }
 
+// Remplace les <!--include: chemin.html--> par le contenu du fichier partiel
+function processIncludes(content, filePath) {
+  return content.replace(/<!--include:\s*(.+?)-->/g, (_, includePath) => {
+    const fullPath = path.join(path.dirname(filePath), includePath.trim())
+    try {
+      return fs.readFileSync(fullPath, 'utf-8')
+    } catch {
+      return `<!-- include not found: ${includePath} -->`
+    }
+  })
+}
+
 // Fonction qui lit et envoie un fichier
 function serve(res, filePath, status = 200) {
   const ext  = path.extname(filePath)
   const type = MIME[ext] || 'application/octet-stream'
   try {
-    const data = fs.readFileSync(filePath)
+    let data = fs.readFileSync(filePath)
+    if (ext === '.html') data = processIncludes(data.toString('utf-8'), filePath)
     res.writeHead(status, { 'Content-Type': type })
     res.end(data)
   } catch {
